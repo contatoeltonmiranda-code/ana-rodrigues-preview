@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>À Mesa em Paz | Programa de nutrição pediátrica para famílias</title>
+<meta name="description" content="O programa que te ajuda a perceber porquê o teu filho não come, a reduzir o stress às refeições e a aproximá-lo dos alimentos com mais confiança. Dos 12 meses aos 6 anos.">
+<meta property="og:title" content="À Mesa em Paz — Programa de nutrição pediátrica">
+<meta property="og:description" content="Curso completo, comunidade, sessões ao vivo e masterclasses para transformar as refeições da tua família.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   LP — À Mesa em Paz | Ana Rodrigues (Nutricionista Pediátrica)
+   Tema CLEAN/light | paleta SAGE (verde acolhedor) + CORAL (calor)
+   Linguagem visual reaproveitada da LP Katia (catálogo de efeitos)
+   PALETA [A CONFIRMAR com identidade visual da Ana no Drive]
+   ===================================================================== */
+:root{
+  --cream:#FBF6EF; --cream2:#F4EADD; --paper:#FFFDFA; --white:#FFFFFF;
+  --sage:#6FA488; --sage-esc:#3F6B54; --sage-claro:#9AC3AB;
+  --coral:#E9987A; --coral-esc:#CE6B49; --coral-claro:#F4BBA3;
+  --ink:#33403A; --texto:#5E6A62; --texto2:#8B968E;
+  --linha:rgba(111,164,136,.30);
+  --grad-sage:linear-gradient(135deg,#9AC3AB 0%,#4E7A63 100%);
+  --grad-sage-claro:linear-gradient(135deg,#B7D8C4 0%,#7FB196 100%);
+  --grad-coral:linear-gradient(135deg,#F4BBA3 0%,#E4886A 100%);
+  --grad-warm:linear-gradient(160deg,#FBF6EF 0%,#F3E7D8 100%);
+  --grad-card:linear-gradient(150deg,#FFFFFF 0%,#FCF5EC 100%);
+  --sh-soft:0 10px 30px rgba(79,122,99,.14); --sh-mid:0 16px 40px rgba(79,122,99,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+@property --angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes angleSpin{to{--angle:360deg}}
+@keyframes circSpin{to{transform:rotate(360deg)}}
+@keyframes sealSpin{to{transform:rotate(360deg)}}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--cream);line-height:1.62;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.display{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;line-height:1.12;letter-spacing:-.4px;color:var(--ink)}
+img{max-width:100%;display:block}
+a{text-decoration:none}
+section{position:relative}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.center{text-align:center}
+.maxw{max-width:720px;margin:0 auto}
+.txt-grad{background:linear-gradient(120deg,#E9987A 0%,#CE6B49 60%,#B4854F 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#CE6B49}
+.sec{padding:88px 0;position:relative}
+.sec h2{font-size:clamp(29px,3.7vw,48px);margin-bottom:16px;line-height:1.1}
+.sec .lead{font-size:17px;color:var(--texto)}
+.sec .lead strong{color:var(--ink);font-weight:600}
+/* EYEBROW */
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--grad-sage-claro);color:#1e3a2c;font-size:11.5px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;padding:8px 17px;border-radius:50px;box-shadow:0 4px 16px rgba(111,164,136,.28);max-width:max-content}
+.eyebrow.coral{background:var(--grad-coral);color:#5a2a17}
+.eyebrow.outline{background:transparent;border:1.5px solid var(--sage);color:var(--sage-esc);box-shadow:none}
+.center .eyebrow{margin-left:auto;margin-right:auto;margin-bottom:16px}
+/* BOTAO glow + shine */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#7FB196 0%,#5A8E72 45%,#3F6B54 100%);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px;letter-spacing:.5px;text-transform:uppercase;padding:18px 34px;border-radius:14px;border:none;cursor:pointer;outline:1.5px solid var(--linha);outline-offset:4px;box-shadow:0 10px 28px rgba(79,122,99,.32),0 0 0 0 rgba(111,164,136,.55);transition:transform .25s,box-shadow .25s,background .25s;animation:btn-glow 2.8s ease-out infinite}
+.btn::before{content:"";position:absolute;top:0;left:0;width:60%;height:100%;background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.55) 50%,transparent 100%);transform:translateX(-180%) skewX(-18deg);animation:btn-shine 8s ease-in-out infinite;pointer-events:none}
+.btn:hover{transform:translateY(-3px) scale(1.02);background:linear-gradient(135deg,#8DBEA3 0%,#5A8E72 45%,#48765C 100%);box-shadow:0 16px 40px rgba(79,122,99,.42)}
+.btn.lg{font-size:16.5px;padding:21px 42px}
+.btn.full{width:100%}
+@keyframes btn-glow{0%{box-shadow:0 10px 28px rgba(79,122,99,.32),0 0 0 0 rgba(111,164,136,.5)}60%{box-shadow:0 10px 28px rgba(79,122,99,.32),0 0 0 12px rgba(111,164,136,0)}100%{box-shadow:0 10px 28px rgba(79,122,99,.32),0 0 0 0 rgba(111,164,136,0)}}
+@keyframes btn-shine{0%{transform:translateX(-180%) skewX(-18deg)}40%{transform:translateX(230%) skewX(-18deg)}100%{transform:translateX(230%) skewX(-18deg)}}
+@media(prefers-reduced-motion:reduce){.btn{animation:none}.btn::before{display:none}}
+.cta-seals{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:20px;font-size:13px;font-weight:500;color:var(--texto)}
+.cta-seals span{display:inline-flex;align-items:center;gap:7px}
+.cta-seals span::before{content:"\2713";color:var(--sage-esc);font-weight:800}
+.center .cta-seals{justify-content:center}
+/* PLACEHOLDERS DE IMAGEM (trocar div.ph por <img> de mesmo id/classe; ver _brain/imagens-pendentes.md) */
+.ph{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(150deg,#F3ECE0 0%,#E9EFE7 55%,#DCE9E0 100%);border:2px dashed rgba(111,164,136,.5);border-radius:18px;padding:26px 20px;color:var(--sage-esc);font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.5px;line-height:1.5}
+.ph::before{content:"IMAGEM A FORNECER";position:absolute;top:11px;left:50%;transform:translateX(-50%);font-size:8.5px;letter-spacing:2px;font-weight:600;color:var(--texto2)}
+.ph .ph-dim{display:block;margin-top:6px;font-size:10.5px;font-weight:500;letter-spacing:.4px;color:var(--texto2)}
+.tbc{position:relative;display:inline-block;background:rgba(233,152,122,.16);border:1px dashed #CE6B49;color:#9c4a2e;font-weight:700;padding:1px 8px;border-radius:6px;white-space:nowrap}
+body.has-preview-bar{padding-top:42px}
+.preview-bar{position:fixed;top:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,#E9987A,#CE6B49);color:#fff;font-family:'Inter',sans-serif;font-weight:600;font-size:.82rem;line-height:1.35;text-align:center;padding:9px 46px 9px 18px}
+.preview-bar b{font-weight:800}
+.preview-bar .close{position:absolute;top:50%;right:12px;transform:translateY(-50%);background:rgba(0,0,0,.18);color:#fff;border:none;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:1rem;line-height:1;font-weight:800;display:grid;place-items:center}
+.preview-bar .close:hover{background:rgba(0,0,0,.32)}
+/* ORBE */
+.orb{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(111,164,136,.20),rgba(233,152,122,.08) 42%,transparent 70%);filter:blur(30px);pointer-events:none;z-index:0;animation:orbBreath 9s ease-in-out infinite}
+.orb.coral{background:radial-gradient(circle,rgba(233,152,122,.22),rgba(111,164,136,.06) 44%,transparent 70%)}
+.orb.tl{top:-180px;left:-140px}
+.orb.br{bottom:-180px;right:-140px;animation-delay:-4.5s}
+@keyframes orbBreath{0%,100%{opacity:.28;transform:scale(.94)}50%{opacity:.6;transform:scale(1.04)}}
+@media(prefers-reduced-motion:reduce){.orb{animation:none;opacity:.4}}
+@media(max-width:560px){.orb{width:320px;height:320px;filter:blur(24px)}}
+/* SCROLL REVEAL */
+.sr-hidden{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.sr-hidden.sr-visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.sr-hidden,.sr-hidden.sr-visible{opacity:1;transform:none;transition:none}*{scroll-behavior:auto}}
+/* HERO */
+.hero{padding:72px 0 96px;background:linear-gradient(90deg,rgba(251,246,239,.94) 0%,rgba(251,246,239,.62) 30%,rgba(251,246,239,.12) 50%,rgba(251,246,239,0) 62%),url("assets/bg-hero.png") 72% center/cover no-repeat,var(--grad-warm);overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 60% 50% at 82% 30%,rgba(233,152,122,.14),transparent 70%),radial-gradient(ellipse 55% 55% at 12% 78%,rgba(111,164,136,.14),transparent 72%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;position:relative;z-index:2}
+.hero-logo{display:block;width:100%;max-width:255px;height:auto;margin:0 0 22px}
+.hero .pretitle{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:600;letter-spacing:1.1px;text-transform:uppercase;color:var(--sage-esc);background:rgba(255,255,255,.7);border:1px solid var(--linha);border-radius:50px;padding:8px 16px;margin-bottom:20px;box-shadow:0 3px 12px rgba(79,122,99,.08)}
+.hero .pretitle svg{width:15px;height:15px;stroke:var(--coral-esc);stroke-width:2;fill:none}
+.hero h1{font-size:clamp(32px,4.6vw,58px);margin:0 0 18px;line-height:1.08}
+.hero .sub{font-size:clamp(15px,1.2vw,17px);max-width:540px;color:var(--texto);margin-bottom:28px}
+.hero .sub strong{color:var(--ink);font-weight:600}
+.hero-visual{min-height:440px;position:relative;display:flex;align-items:center;justify-content:center}
+.hero-photo{position:relative;width:100%;max-width:440px;margin:0 auto;z-index:1}
+.hero-photo .prod-frame{aspect-ratio:4/5}
+.hero-photo .ph{height:100%;aspect-ratio:4/5}
+/* MARQUEE X DUPLO */
+.marquee{background:transparent;height:112px;overflow-x:clip;overflow-y:visible;position:relative;z-index:40;margin-top:-54px;margin-bottom:-54px}
+.marquee-bar{position:absolute;left:50%;top:50%;width:150%;overflow:hidden;white-space:nowrap;padding:11px 0;box-shadow:0 8px 24px rgba(79,122,99,.28)}
+.marquee-bar.back{background:var(--grad-sage);transform:translate(-50%,-50%) rotate(-3.2deg);z-index:1}
+.marquee-bar.front{background:var(--grad-coral);transform:translate(-50%,-50%) rotate(3.2deg);z-index:2}
+.marquee-track{display:inline-flex;width:max-content;will-change:transform}
+.marquee-track .mq-seg{display:inline-flex;flex:0 0 auto;align-items:center}
+.marquee-bar.front .marquee-track{animation:mq-scroll 30s linear infinite}
+.marquee-bar.back .marquee-track{animation:mq-scroll-rev 34s linear infinite}
+.marquee-track span{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;letter-spacing:1.4px;text-transform:uppercase;padding:0 14px;white-space:nowrap}
+.marquee-bar.front .marquee-track span{color:#5a2a17}
+.marquee-bar.back .marquee-track span{color:#fff}
+.marquee-track .dot{opacity:.5}
+@keyframes mq-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes mq-scroll-rev{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none!important}}
+/* BARRAS RETAS */
+.strips{position:relative;z-index:30}
+.strip{overflow:hidden;white-space:nowrap}
+.strip .marquee-track{padding:18px 0}
+.strip.sage{background:var(--grad-sage-claro);box-shadow:0 6px 18px rgba(79,122,99,.2)}
+.strip.coral{background:var(--grad-coral);border-top:1px solid rgba(255,255,255,.4)}
+.strip .strip-a{animation:mq-scroll 40s linear infinite}
+.strip .strip-b{animation:mq-scroll-rev 46s linear infinite}
+.strip span{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:20px;letter-spacing:1.6px;text-transform:uppercase;padding:0 22px;white-space:nowrap}
+.strip.sage span{color:#1e3a2c}
+.strip.coral span{color:#5a2a17}
+.strip .dot{opacity:.45}
+@media(prefers-reduced-motion:reduce){.strip .marquee-track{animation:none!important}}
+/* FRAME conic reutilizavel (fotos) */
+.prod-frame{position:relative;border-radius:22px;overflow:hidden;box-shadow:var(--sh-mid);z-index:1}
+.prod-frame::before{content:"";position:absolute;inset:0;border-radius:22px;padding:3px;background:conic-gradient(from var(--angle),rgba(111,164,136,0) 0deg,rgba(111,164,136,0) 200deg,var(--sage) 260deg,var(--coral) 305deg,#fff 325deg,var(--sage) 345deg,rgba(111,164,136,0) 360deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;animation:angleSpin 6s linear infinite;pointer-events:none;z-index:3}
+.prod-frame img{width:100%;height:100%;object-fit:cover;border-radius:22px}
+.prod-ring{position:absolute;inset:-14px;border-radius:30px;border:1.5px solid rgba(111,164,136,.3);z-index:0;animation:ringPulse 4.5s ease-in-out infinite}
+.prod-glow{position:absolute;inset:-36px;border-radius:34px;background:radial-gradient(circle at 50% 45%,rgba(233,152,122,.2),transparent 66%);z-index:0;animation:orbBreath 5s ease-in-out infinite;pointer-events:none}
+@keyframes ringPulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:.8;transform:scale(1.02)}}
+@media(prefers-reduced-motion:reduce){.prod-frame::before,.prod-ring,.prod-glow{animation:none}}
+/* SEC 2 — PARA QUEM E / NAO E */
+.sec-fit{background:var(--paper)}
+.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1000px;margin:44px auto 0;align-items:stretch}
+.fit-card{position:relative;height:100%;background:var(--grad-card);border:1px solid var(--linha);border-radius:20px;padding:32px 30px;box-shadow:var(--sh-soft);overflow:hidden}
+.fit-card::after{content:"";position:absolute;top:0;left:30px;width:64px;height:4px;border-radius:0 0 4px 4px;pointer-events:none}
+.fit-card.yes::after{background:var(--grad-sage-claro);box-shadow:0 0 10px rgba(111,164,136,.4)}
+.fit-card.no::after{background:var(--grad-coral);box-shadow:0 0 10px rgba(233,152,122,.4)}
+.fit-card h3{font-size:22px;margin-bottom:18px;display:flex;align-items:center;gap:11px}
+.fit-card h3 .fh{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fit-card.yes h3 .fh{background:var(--grad-sage)}
+.fit-card.no h3 .fh{background:var(--grad-coral)}
+.fit-card h3 .fh svg{width:18px;height:18px;stroke:#fff;stroke-width:2.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.fit-list{list-style:none;display:grid;gap:13px}
+.fit-list li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--texto);line-height:1.5}
+.fit-list li .mk{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.fit-card.yes .fit-list li .mk{background:rgba(111,164,136,.16)}
+.fit-card.no .fit-list li .mk{background:rgba(233,152,122,.16)}
+.fit-list li .mk svg{width:12px;height:12px;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.fit-card.yes .fit-list li .mk svg{stroke:var(--sage-esc)}
+.fit-card.no .fit-list li .mk svg{stroke:var(--coral-esc)}
+/* IMAGINA (hover blur) */
+.sec-imag{background:var(--cream);overflow:hidden}
+.imag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:46px}
+.imag-card{position:relative;background:var(--grad-card);border:1px solid var(--linha);border-radius:18px;padding:24px 22px;box-shadow:var(--sh-soft);transition:transform .35s ease,box-shadow .35s ease,opacity .35s ease,filter .35s ease}
+.imag-card .ii{position:relative;width:48px;height:48px;border-radius:14px;background:linear-gradient(145deg,#C6E2D2,#93BEA6 55%,#6FA488);box-shadow:0 8px 18px rgba(111,164,136,.28),inset 0 0 0 1px rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;margin-bottom:16px;transition:transform .35s ease,box-shadow .35s ease}
+.imag-card:hover .ii{transform:translateY(-2px) rotate(-3deg);box-shadow:0 12px 24px rgba(111,164,136,.36),inset 0 0 0 1px rgba(255,255,255,.5)}
+.imag-card .ii svg{width:24px;height:24px;stroke:#fff;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.imag-card:nth-child(4n+2) .ii,.imag-card:nth-child(4n+3) .ii{background:linear-gradient(145deg,#FAD9CB,#EE9E80 55%,#E4886A);box-shadow:0 8px 18px rgba(233,152,122,.3),inset 0 0 0 1px rgba(255,255,255,.4)}
+.imag-card:nth-child(4n+2):hover .ii,.imag-card:nth-child(4n+3):hover .ii{box-shadow:0 12px 24px rgba(233,152,122,.4),inset 0 0 0 1px rgba(255,255,255,.5)}
+.imag-card:nth-child(4n+2) .ii svg,.imag-card:nth-child(4n+3) .ii svg{stroke:#fff}
+@media(hover:hover){.imag-grid:hover .imag-card{opacity:.55;filter:blur(2px)}.imag-grid:hover .imag-card:hover{opacity:1;filter:blur(0);transform:translateY(-6px);box-shadow:var(--sh-mid)}}
+.imag-bridge{text-align:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:clamp(19px,2.3vw,26px);color:var(--ink);max-width:760px;margin:40px auto 0;line-height:1.35}
+.imag-bridge b{color:var(--coral-esc)}
+.brk-desk{display:inline}
+@media(max-width:600px){.brk-desk{display:none}}
+/* SEC 3 — METODO M.E.S.A (divisoria arredondada) */
+.sec-mesa{background:linear-gradient(170deg,#EDF3EE 0%,#FBF6EF 60%);overflow-x:clip;overflow-y:visible;padding-top:112px}
+.wave-divider{position:absolute;top:0;left:0;width:100%;line-height:0;z-index:3;pointer-events:none}
+.wave-divider .wd-curve{display:block;width:100%;height:48px}
+.wave-divider .wd-curve path.wd-fill{fill:var(--cream)}
+.wave-divider .wd-curve path.wd-crest{fill:none;stroke:rgba(111,164,136,.55);stroke-width:1.6;vector-effect:non-scaling-stroke}
+.wave-divider .wd-circle{position:absolute;top:48px;left:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:var(--grad-sage);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(79,122,99,.4),inset 0 0 0 1px rgba(255,255,255,.4);z-index:3}
+.wave-divider .wd-circle svg{width:25px;height:25px;stroke:#fff;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:600px){.wave-divider .wd-curve{height:32px}.wave-divider .wd-circle{top:32px;width:46px;height:46px}.wave-divider .wd-circle svg{width:20px;height:20px}}
+.mesa-letters{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:760px;margin:40px auto 0}
+.mesa-l{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:120px;background:var(--grad-card);border:1px solid var(--linha);border-radius:18px;padding:30px 18px;text-align:center;box-shadow:var(--sh-soft);overflow:hidden}
+.mesa-l::before{content:"";position:absolute;inset:0;border-radius:18px;padding:1.4px;background:conic-gradient(from var(--angle),rgba(111,164,136,0) 0deg,rgba(111,164,136,0) 200deg,var(--sage) 260deg,var(--coral) 320deg,#fff 340deg,rgba(111,164,136,0) 360deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;animation:angleSpin 7s linear infinite;pointer-events:none;z-index:0}
+.mesa-l:nth-child(2)::before{animation-delay:-1.7s}
+.mesa-l:nth-child(3)::before{animation-delay:-3.4s}
+.mesa-l:nth-child(4)::before{animation-delay:-5.1s}
+.mesa-l>*{position:relative;z-index:1}
+.mesa-l .ml-letter{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:56px;line-height:1;background:linear-gradient(140deg,#7FB196,#CE6B49);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@media(prefers-reduced-motion:reduce){.mesa-l::before{animation:none}}
+.mesa-diagram{max-width:820px;margin:34px auto 0}
+.mesa-diagram img{width:100%;height:auto;display:block;border-radius:20px;box-shadow:var(--sh-soft)}
+.mesa-bridge{max-width:760px;margin:40px auto 0;text-align:center;font-size:16.5px;color:var(--texto);line-height:1.7}
+.mesa-bridge strong{color:var(--ink);font-weight:600}
+.mesa-bridge .em{display:block;margin-top:14px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:clamp(18px,2.2vw,23px);color:var(--sage-esc)}
+/* SEC 4 — 6 MODULOS timeline */
+.sec-mod{background:var(--paper)}
+.mod-split{display:grid;grid-template-columns:.82fr 1.18fr;gap:52px;align-items:start;margin-top:26px}
+.mod-head{position:sticky;top:36px}
+.mod-head .eyebrow{margin-bottom:16px}
+.mod-head h2{margin-bottom:14px}
+.mod-head .lead{max-width:420px}
+.mod-head .mh-note{margin-top:20px;font-size:14px;color:var(--texto);background:rgba(111,164,136,.09);border:1px solid var(--linha);border-radius:14px;padding:16px 18px;line-height:1.55}
+.mod-head .mh-note b{color:var(--sage-esc)}
+.steps{display:grid;gap:0;position:relative}
+.steps::before{content:"";position:absolute;left:27px;top:27px;bottom:27px;width:2px;border-radius:2px;background:rgba(111,164,136,.35)}
+.steps::after{content:"";position:absolute;left:27px;top:27px;width:2px;border-radius:2px;height:calc((100% - 54px) * var(--fill,0));background:linear-gradient(180deg,#9AC3AB 0%,#4E7A63 100%);box-shadow:0 0 10px rgba(111,164,136,.55);z-index:1;will-change:height}
+.step{display:grid;grid-template-columns:56px 1fr;gap:22px;padding:0 0 26px;position:relative;opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.step.show{opacity:1;transform:none}
+.step:last-child{padding-bottom:0}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--grad-sage);display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;color:#fff;flex-shrink:0;z-index:2;box-shadow:0 6px 18px rgba(79,122,99,.4),inset 0 0 0 2px rgba(255,255,255,.4)}
+.step-body{background:var(--grad-card);border:1px solid var(--linha);border-radius:16px;padding:20px 24px;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;box-shadow:var(--sh-soft)}
+@media(hover:hover){.step-body:hover{transform:scale(1.02);border-color:rgba(111,164,136,.6);box-shadow:var(--sh-mid)}}
+.step-body h3{font-size:19.5px;margin-bottom:6px;color:var(--sage-esc)}
+.step-body p{color:var(--texto);font-size:14px;line-height:1.55}
+@media(prefers-reduced-motion:reduce){.step{opacity:1;transform:none;transition:none}.steps{--fill:1}.steps::after{transition:none}}
+/* ACESSO — HEXAGONO (icone grande) + card com recorte em V encaixado por baixo.
+   Geometria: hexagono aspect 1/1.12 -> a diagonal da base sobe 0.28 x largura da coluna.
+   V do card = 0.28 x largura (paralelo a base do hexagono);
+   margin-top:-52.5% (0.28 do V + 0.245 de sobreposicao) faz a ponta do hexagono cair
+   exatamente dentro do V, sem buraco. % de margin/padding resolve pela LARGURA do pai. */
+.sec-acesso{background:var(--cream);overflow:hidden}
+.acesso-grid{--gw:min(100vw - 48px,1112px);--colw:calc((var(--gw) - 72px)/4);--vd:calc(var(--colw)*.28);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:46px;align-items:stretch}
+.acesso-item{position:relative;display:flex;flex-direction:column;transition:opacity .35s ease,filter .35s ease}
+/* wrapper leva a sombra: filter e aplicado ANTES do clip-path, logo no elemento clipado a sombra sumiria */
+.ahex{position:relative;z-index:2;width:100%;filter:drop-shadow(0 12px 20px rgba(79,122,99,.30))}
+.ahex-in{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:1/1.12;background:var(--grad-sage);
+  -webkit-clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
+.ahex-in svg{width:42%;height:auto;aspect-ratio:1;stroke:#fff;stroke-width:1.3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.acesso-card{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;gap:9px;
+  background:var(--grad-card);border:1px solid var(--linha);border-radius:0 0 18px 18px;
+  margin-top:-52.5%;padding:calc(52.5% + 14px) 20px 26px;
+  -webkit-clip-path:polygon(0 0,50% var(--vd),100% 0,100% 100%,0 100%);clip-path:polygon(0 0,50% var(--vd),100% 0,100% 100%,0 100%);
+  transition:transform .3s ease}
+.acesso-card h3{font-size:17px;color:var(--ink);line-height:1.22}
+.acesso-card p{font-size:13.4px;color:var(--texto);line-height:1.5}
+.acesso-card .small-note{font-size:11.5px;color:var(--texto2);font-style:italic;line-height:1.45}
+.acesso-item.feat .ahex-in{background:linear-gradient(135deg,#E9987A 0%,#C25F3D 100%)}
+.acesso-item.feat .acesso-card{background:linear-gradient(150deg,#FFF8F3 0%,#FBE7DB 100%);border-color:rgba(233,152,122,.5)}
+.acesso-item.feat .acesso-card h3{color:var(--coral-esc)}
+@media(hover:hover){
+  .acesso-grid:hover .acesso-item{opacity:.55;filter:blur(2px)}
+  .acesso-grid:hover .acesso-item:hover{opacity:1;filter:none}
+  .acesso-item:hover .acesso-card{transform:translateY(-5px)}
+}
+/* SEC 5 — BONUS bento assimetrico */
+.sec-bonus{background:var(--grad-warm);overflow:hidden}
+.sec-bonus::before{content:"";position:absolute;top:0;right:0;width:56%;height:6px;background:linear-gradient(270deg,var(--coral),var(--sage) 50%,transparent);filter:drop-shadow(0 0 6px rgba(233,152,122,.4));pointer-events:none;z-index:3}
+.sec-bonus::after{content:"";position:absolute;bottom:0;left:0;width:56%;height:6px;background:linear-gradient(90deg,var(--sage),var(--coral) 50%,transparent);filter:drop-shadow(0 0 6px rgba(111,164,136,.4));pointer-events:none;z-index:3}
+.bonus-bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,minmax(170px,auto));gap:16px;margin-top:46px}
+.bonus-card{position:relative;background:var(--grad-card);border:1px solid var(--linha);border-radius:18px;padding:28px 28px;display:flex;flex-direction:column;justify-content:flex-start;gap:12px;overflow:hidden;box-shadow:var(--sh-soft);transition:transform .35s ease,box-shadow .35s ease,opacity .35s ease,filter .35s ease}
+.bonus-img{width:calc(100% + 56px);max-width:none;margin:-28px -28px 12px;height:172px;object-fit:cover;border-radius:18px 18px 0 0;display:block}
+.bonus-card .bi{position:relative;width:54px;height:54px;border-radius:50%;background:rgba(233,152,122,.07);border:1px solid rgba(233,152,122,.42);display:flex;align-items:center;justify-content:center;transition:border-color .35s ease,background .35s ease,transform .35s ease}
+.bonus-card:hover .bi{border-color:rgba(233,152,122,.68);background:rgba(233,152,122,.14);transform:translateY(-2px)}
+.bonus-card .bi svg{width:25px;height:25px;stroke:var(--coral-esc);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.bonus-card .btag{display:inline-flex;align-items:center;width:max-content;font-size:10.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--coral-esc);background:rgba(233,152,122,.14);border-radius:50px;padding:4px 12px}
+.bonus-card h3{font-size:20px;color:var(--ink);line-height:1.2}
+.bonus-card p{font-size:13.8px;color:var(--texto);line-height:1.5}
+.bonus-card.wide h3{font-size:23px}
+.bonus-card:nth-child(1){grid-column:1/3;grid-row:1}
+.bonus-card:nth-child(2){grid-column:3/5;grid-row:1}
+.bonus-card:nth-child(3){grid-column:1/2;grid-row:2}
+.bonus-card:nth-child(4){grid-column:2/5;grid-row:2}
+.bonus-card.dark{background:linear-gradient(150deg,#EFF5F0 0%,#DDEBE1 100%);border-color:rgba(111,164,136,.5)}
+.bonus-card.dark .bi{background:rgba(111,164,136,.08);border-color:rgba(111,164,136,.4)}
+.bonus-card.dark:hover .bi{border-color:rgba(111,164,136,.62);background:rgba(111,164,136,.13)}
+.bonus-card.dark .bi svg{stroke:var(--sage-esc)}
+.bonus-card.dark .btag{color:var(--sage-esc);background:rgba(111,164,136,.16)}
+@media(hover:hover){.bonus-bento:hover .bonus-card{opacity:.55;filter:blur(2px)}.bonus-bento:hover .bonus-card:hover{opacity:1;filter:blur(0);transform:translateY(-6px);box-shadow:var(--sh-mid)}}
+/* SEC 6 — OFERTA */
+.sec-oferta{background:var(--paper);overflow:hidden}
+.sec-oferta::before,.sec-oferta::after{content:"";position:absolute;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--sage),transparent);pointer-events:none;z-index:2}
+.sec-oferta::before{top:0}.sec-oferta::after{bottom:0}
+/* OFERTA: card branco (esquerda) centrado verticalmente e GRUDADO ao card de preco,
+   passando por baixo dele (margin-right negativo + z-index:1 no shell da direita). */
+.price-wrap{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;max-width:1040px;margin:46px auto 0}
+.price-side{flex:0 0 480px;align-self:center;background:#fff;border:1px solid rgba(111,164,136,.34);border-radius:22px;box-shadow:var(--sh-soft);padding:36px 76px 36px 38px;margin-right:-56px;z-index:0}
+.price-side .urg{display:inline-flex;align-items:center;gap:8px;background:rgba(233,152,122,.14);border:1px solid rgba(233,152,122,.4);color:var(--coral-esc);font-weight:700;font-size:12.5px;letter-spacing:.8px;text-transform:uppercase;padding:9px 18px;border-radius:50px;margin-bottom:20px}
+.price-side ul{list-style:none;display:grid;gap:12px}
+.price-side li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--ink);line-height:1.45}
+.price-side li .ck{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--grad-sage);display:flex;align-items:center;justify-content:center;margin-top:1px;box-shadow:0 4px 10px rgba(79,122,99,.3)}
+.price-side li .ck svg{width:12px;height:12px;stroke:#fff;stroke-width:3.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.price-box-shell{position:relative;flex:0 0 520px;max-width:520px;z-index:1}.price-photo{position:absolute;left:50%;transform:translateX(-50%);top:-380px;width:500px;height:auto;z-index:0;pointer-events:none;filter:drop-shadow(0 16px 26px rgba(79,122,99,.28))}@media(max-width:600px){.price-photo{width:360px;top:-280px}}
+.price-box{position:relative;z-index:1;background:linear-gradient(150deg,#FFFFFF 0%,#F1F7F2 100%);border-radius:26px;padding:52px 40px 44px;text-align:center;box-shadow:0 26px 60px rgba(79,122,99,.22)}
+.price-box::before{content:"";position:absolute;inset:0;border-radius:26px;padding:2px;background:conic-gradient(from var(--angle),rgba(111,164,136,0) 0deg,rgba(111,164,136,0) 200deg,var(--sage) 260deg,var(--coral) 310deg,#fff 330deg,var(--sage) 350deg,rgba(111,164,136,0) 360deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;animation:angleSpin 6s linear infinite;pointer-events:none;z-index:0}
+.price-box>*{position:relative;z-index:1}
+
+@media(prefers-reduced-motion:reduce){.price-box::before{animation:none}}
+.price-box .selo{display:inline-block;background:var(--grad-coral);color:#5a2a17;font-size:11.5px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;padding:7px 16px;border-radius:50px;margin-bottom:16px}
+.price-box .now-label{font-size:12.5px;font-weight:600;color:var(--texto);letter-spacing:.5px;text-transform:uppercase}
+.price-box .price{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(46px,5vw,62px);color:var(--sage-esc);line-height:1;margin:4px 0 6px}
+.price-box .inst{font-size:16px;color:var(--ink);font-weight:600;margin-bottom:24px}
+.price-box .inst b{color:var(--coral-esc)}
+.price-box .btn{width:100%}
+.price-box .seals{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;margin-top:20px;font-size:12.5px;font-weight:500;color:var(--texto)}
+.price-box .seals span::before{content:"\2713 ";color:var(--sage-esc);font-weight:800}
+/* SEC 7 — TESTEMUNHOS */
+.sec-test{background:var(--cream);overflow:hidden}
+.test-grid{column-count:3;column-gap:20px;margin:44px auto 0;max-width:1000px}
+.test-card{break-inside:avoid;margin:0 0 20px;background:#fff;border:1px solid var(--linha);border-radius:16px;padding:8px;box-shadow:var(--sh-soft);overflow:hidden;line-height:0}
+.test-card img{display:block;width:100%;height:auto;border-radius:10px}
+.test-note{text-align:center;max-width:640px;margin:30px auto 0;font-size:13.5px;color:var(--texto2);font-style:italic}
+@media(hover:hover){.test-card{transition:transform .4s ease,box-shadow .4s ease}.test-card:hover{transform:translateY(-6px);box-shadow:var(--sh-mid)}.test-card img{transition:transform .55s ease}.test-card:hover img{transform:scale(1.04)}}
+/* SEC 8 — SOBRE MIM */
+.sec-sobre{background:var(--grad-warm);overflow:hidden}
+.sobre-split{display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:center}
+.sobre-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:360px}
+.sobre-photo{position:relative;width:100%;max-width:360px;z-index:1}
+.sobre-photo .prod-frame{aspect-ratio:4/7}
+.sobre-photo .ph{aspect-ratio:4/5;height:100%}
+.sobre-seal{position:absolute;bottom:-26px;right:-16px;z-index:3;width:132px;height:132px}
+.sobre-body .eyebrow{margin-bottom:16px}
+.sobre-body h2{margin-bottom:16px}
+.sobre-body p{font-size:15.5px;color:var(--texto);margin-bottom:14px;line-height:1.7}
+.sobre-body p strong{color:var(--ink);font-weight:600}
+.sobre-creds{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.sobre-creds .cred{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.7);border:1px solid var(--linha);border-radius:50px;padding:8px 15px;font-size:12.5px;color:var(--sage-esc);font-weight:600;box-shadow:0 3px 10px rgba(79,122,99,.08)}
+.sobre-creds .cred svg{width:15px;height:15px;stroke:var(--coral-esc);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.seal{position:relative;width:132px;height:132px}
+.seal .seal-glow{position:absolute;inset:-16px;border-radius:50%;background:radial-gradient(circle,rgba(111,164,136,.28),transparent 66%);animation:orbBreath 4.6s ease-in-out infinite}
+.seal .seal-disc{position:absolute;inset:0;border-radius:50%;background:var(--grad-sage);box-shadow:0 10px 26px rgba(79,122,99,.4)}
+.seal .seal-rot{position:absolute;inset:0;animation:sealSpin 22s linear infinite;will-change:transform}
+.seal .seal-text{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:8.6px;letter-spacing:.5px;fill:#fff;text-transform:uppercase}
+.seal .seal-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:inset 0 0 0 1px rgba(111,164,136,.3),0 4px 12px rgba(79,122,99,.2)}
+.seal .seal-core .sc-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:30px;color:var(--coral-esc);line-height:.9}
+.seal .seal-core .sc-lab{font-size:7.5px;letter-spacing:1.2px;color:var(--texto);text-transform:uppercase;font-weight:600;margin-top:2px}
+@media(prefers-reduced-motion:reduce){.seal .seal-rot,.seal .seal-glow{animation:none}}
+/* SEC 9 — FAQ */
+.sec-faq{background:var(--paper)}
+.faq-list{max-width:820px;margin:44px auto 0;display:grid;gap:12px}
+.faq-item{background:var(--grad-card);border:1px solid var(--linha);border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(79,122,99,.07)}
+.faq-item summary{list-style:none;cursor:pointer;padding:20px 24px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .fq-ico{flex-shrink:0;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--sage);position:relative;transition:transform .3s}
+.faq-item summary .fq-ico::before,.faq-item summary .fq-ico::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--sage-esc)}
+.faq-item summary .fq-ico::before{width:11px;height:2px}
+.faq-item summary .fq-ico::after{width:2px;height:11px;transition:transform .3s}
+.faq-item[open] summary .fq-ico::after{transform:translate(-50%,-50%) scaleY(0)}
+.faq-item[open] summary{color:var(--sage-esc)}
+.faq-item .faq-ans{padding:0 24px 22px;font-size:14.3px;color:var(--texto);line-height:1.65}
+.faq-item .faq-ans p{margin-bottom:10px}
+.faq-item .faq-ans p:last-child{margin-bottom:0}
+/* CTA FINAL */
+.sec-final{background:var(--cream);overflow:hidden;text-align:center}
+.sec-final::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--coral),transparent);pointer-events:none;z-index:3}
+.final-inner{position:relative;z-index:1;max-width:800px;margin:0 auto;background:linear-gradient(150deg,#FFFFFF 0%,#F1F7F2 100%);border-radius:26px;padding:58px 50px;box-shadow:0 24px 60px rgba(79,122,99,.2)}
+.final-inner::before{content:"";position:absolute;inset:0;border-radius:26px;padding:1.6px;background:conic-gradient(from var(--angle),transparent 0deg,transparent 150deg,var(--sage) 230deg,var(--coral) 285deg,#fff 315deg,var(--sage) 340deg,transparent 360deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;animation:angleSpin 7s linear infinite;pointer-events:none;z-index:0}
+.final-inner>*{position:relative;z-index:1}
+@media(prefers-reduced-motion:reduce){.final-inner::before{animation:none}}
+.final-inner h2{font-size:clamp(28px,3.8vw,46px);margin-bottom:16px}
+.final-inner .lead{max-width:620px;margin:0 auto 20px;color:var(--texto);font-size:16px;line-height:1.7}
+.final-inner .lead strong{color:var(--ink);font-weight:600}
+@media(max-width:560px){.final-inner{padding:40px 24px;border-radius:20px}}
+/* FOOTER */
+footer{position:relative;background:#EDE4D6;color:var(--texto);padding:50px 0 34px;text-align:center;font-size:13px}
+footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--sage),transparent);pointer-events:none}
+.foot-brand{margin-bottom:14px}
+.foot-brand img{display:block;width:100%;max-width:220px;height:auto;margin:0 auto}
+.foot-wpp{display:inline-flex;align-items:center;gap:8px;color:var(--sage-esc);font-size:14px;font-weight:600;margin-bottom:6px}
+.foot-wpp svg{width:17px;height:17px;stroke:var(--sage-esc);stroke-width:1.9;fill:none}
+.foot-anacom{font-size:11px;color:var(--texto2);margin-bottom:20px}
+.foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-bottom:18px;padding-top:20px;border-top:1px solid rgba(111,164,136,.3)}
+.foot-links a{color:var(--texto);font-size:12.5px;transition:color .2s}
+.foot-links a:hover{color:var(--sage-esc)}
+.foot-copy{font-size:12px;color:var(--texto2);line-height:1.6}
+/* RESPONSIVO */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:38px}
+  .hero-visual{order:2;min-height:340px}
+  .hero-photo{max-width:min(82vw,380px)}
+  .fit-grid{grid-template-columns:1fr;gap:18px}
+  .imag-grid{grid-template-columns:repeat(2,1fr)}
+  .mesa-letters{grid-template-columns:repeat(2,1fr);max-width:520px}
+  .mod-split{grid-template-columns:1fr;gap:34px}
+  .mod-head{position:static}
+  .acesso-grid{grid-template-columns:repeat(2,1fr);max-width:720px;margin-left:auto;margin-right:auto;--gw:min(100vw - 48px,720px);--colw:calc((var(--gw) - 24px)/2)}
+  .bonus-bento{grid-template-columns:repeat(2,1fr);grid-template-rows:none}
+  .bonus-bento .bonus-card:nth-child(n){grid-column:auto;grid-row:auto}
+  .sec-oferta h2{padding-bottom:26px!important}
+  .price-wrap{flex-direction:column;align-items:stretch;max-width:520px}
+  .price-side{flex:auto;align-self:auto;border-radius:22px 22px 0 0;margin-right:0;margin-bottom:-30px;padding:34px 30px 230px}
+  .price-box-shell{flex:auto;max-width:100%;width:100%}
+  .test-grid{column-count:2}
+  .sobre-split{grid-template-columns:1fr;gap:60px}
+  .sobre-visual{order:-1;max-width:360px;margin:0 auto}
+  .imag-grid:hover .imag-card,.acesso-grid:hover .acesso-item,.bonus-bento:hover .bonus-card{opacity:1;filter:none}
+}
+@media(max-width:600px){
+  .wrap{padding:0 18px}
+  .sec{padding:60px 0}
+  .hero{padding:48px 0 70px}
+  .hero h1{font-size:clamp(28px,8vw,38px)}
+  .sec h2{font-size:clamp(25px,7vw,34px)}
+  .btn,.btn.lg{font-size:14px;padding:16px 22px;width:100%}
+  .imag-grid,.bonus-bento,.mesa-letters{grid-template-columns:1fr}
+  .acesso-grid{grid-template-columns:1fr;max-width:320px;--gw:min(100vw - 36px,320px);--colw:var(--gw)}
+  .price-side{padding:30px 22px 182px}
+  .fit-grid{grid-template-columns:1fr}
+  .test-grid{column-count:1}
+  .marquee{height:96px;margin-top:-48px;margin-bottom:-48px}
+  .marquee-bar{width:280%}
+  .marquee-bar.back{transform:translate(-50%,-50%) rotate(-7deg)}
+  .marquee-bar.front{transform:translate(-50%,-50%) rotate(7deg)}
+  .marquee-track span{font-size:13px;letter-spacing:1px}
+  .strip .marquee-track{padding:14px 0}
+  .strip span{font-size:15px;letter-spacing:1px;padding:0 14px}
+  .step{grid-template-columns:46px 1fr;gap:16px}
+  .step-num{width:46px;height:46px;font-size:19px}
+  .steps::before,.steps::after{left:22px}
+  .price-box{padding:34px 22px}
+  .sobre-seal{width:104px;height:104px;bottom:-20px;right:0}
+  .seal{width:104px;height:104px}
+  body.has-preview-bar{padding-top:58px}
+  .hero{background:linear-gradient(180deg,rgba(251,246,239,.95) 0%,rgba(251,246,239,.72) 30%,rgba(251,246,239,.2) 58%,rgba(251,246,239,0) 100%),url("assets/bg-hero.png") 66% 8%/cover no-repeat,var(--grad-warm)}
+  .hero-logo{max-width:190px;margin-bottom:16px}
+  .hero-visual{min-height:300px}
+  .price-box{padding-top:44px}
+  
+}
+</style>
+</head>
+<body class="has-preview-bar">
+<div class="preview-bar" id="previewBar">
+  PREVIEW &mdash; imagens marcadas como <b>A FORNECER</b> e itens <b>[a confirmar]</b> serão substituídos antes de publicar.
+  <button class="close" type="button" aria-label="Fechar aviso" onclick="var b=document.getElementById('previewBar');b.remove();document.body.classList.remove('has-preview-bar');">&times;</button>
+</div>
+
+<!-- ============ HERO (SECÇÃO 1) ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy sr-hidden">
+      <img class="hero-logo" src="assets/logo-mesa-em-paz.png" width="760" height="258" alt="À Mesa em Paz — Nutrição Pediátrica">
+      <span class="pretitle">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v8a4 4 0 0 0 8 0V3M8 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg>
+        Nutrição Pediátrica &middot; dos 12 meses aos 6 anos
+      </span>
+      <h1>O programa que te ajuda a perceber <span class="txt-grad">porquê que o teu filho não come</span>.</h1>
+      <p class="sub"><strong>Te ajudamos a reduzir o stress às refeições e a criar um caminho para o ajudar a aproximar-se dos alimentos com mais confiança.</strong> Para famílias com bebés e crianças que não comem ou recusam certos alimentos - dos 12 meses aos 6 anos.</p>
+      <a href="#oferta" class="btn lg">Quero fazer parte</a>
+      <div class="cta-seals">
+        <span>Acesso durante 12 meses</span>
+        <span>Comunidade e sessões ao vivo</span>
+        <span>Acompanhamento da nutricionista</span>
+      </div>
+    </div>
+    <div class="hero-visual sr-hidden" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE X DUPLO ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-bar back">
+    <div class="marquee-track">
+      <span class="mq-seg"><span>Refeições em paz</span><span class="dot">&bull;</span><span>Menos stress à mesa</span><span class="dot">&bull;</span><span>Mais confiança</span><span class="dot">&bull;</span><span>Sem culpa</span><span class="dot">&bull;</span><span>Refeições em paz</span><span class="dot">&bull;</span><span>Menos stress à mesa</span><span class="dot">&bull;</span><span>Mais confiança</span><span class="dot">&bull;</span><span>Sem culpa</span><span class="dot">&bull;</span><span>Refeições em paz</span><span class="dot">&bull;</span><span>Menos stress à mesa</span><span class="dot">&bull;</span><span>Mais confiança</span><span class="dot">&bull;</span><span>Sem culpa</span><span class="dot">&bull;</span></span><span class="mq-seg"><span>Refeições em paz</span><span class="dot">&bull;</span><span>Menos stress à mesa</span><span class="dot">&bull;</span><span>Mais confiança</span><span class="dot">&bull;</span><span>Sem culpa</span><span class="dot">&bull;</span><span>Refeições em paz</span><span class="dot">&bull;</span><span>Menos stress à mesa</span><span class="dot">&bull;</span><span>Mais confiança</span><span class="dot">&bull;</span><span>Sem culpa</span><span class="dot">&bull;</span><span>Refeições em paz</span><span class="dot">&bull;</span><span>Menos stress à mesa</span><span class="dot">&bull;</span><span>Mais confiança</span><span class="dot">&bull;</span><span>Sem culpa</span><span class="dot">&bull;</span></span>
+    </div>
+  </div>
+  <div class="marquee-bar front">
+    <div class="marquee-track">
+      <span class="mq-seg"><span>Nutrição adequada</span><span class="dot">&bull;</span><span>Comunidade de famílias</span><span class="dot">&bull;</span><span>Sessões ao vivo</span><span class="dot">&bull;</span><span>Nutrição adequada</span><span class="dot">&bull;</span><span>Comunidade de famílias</span><span class="dot">&bull;</span><span>Sessões ao vivo</span><span class="dot">&bull;</span><span>Nutrição adequada</span><span class="dot">&bull;</span><span>Comunidade de famílias</span><span class="dot">&bull;</span><span>Sessões ao vivo</span><span class="dot">&bull;</span></span><span class="mq-seg"><span>Nutrição adequada</span><span class="dot">&bull;</span><span>Comunidade de famílias</span><span class="dot">&bull;</span><span>Sessões ao vivo</span><span class="dot">&bull;</span><span>Nutrição adequada</span><span class="dot">&bull;</span><span>Comunidade de famílias</span><span class="dot">&bull;</span><span>Sessões ao vivo</span><span class="dot">&bull;</span><span>Nutrição adequada</span><span class="dot">&bull;</span><span>Comunidade de famílias</span><span class="dot">&bull;</span><span>Sessões ao vivo</span><span class="dot">&bull;</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SECÇÃO 2 — A TRANSFORMAÇÃO ============ -->
+<section class="sec sec-fit">
+  <div class="wrap center">
+    <span class="eyebrow outline">A transformação</span>
+    <h2>O programa <span class="txt-grad">À Mesa em Paz</span> é para ti?</h2>
+    <p class="lead maxw">Vê se te reconheces &mdash; e onde este programa faz (ou não) sentido para a tua família.</p>
+  </div>
+  <div class="wrap">
+    <div class="fit-grid">
+      <div class="fit-card yes sr-hidden">
+        <h3><span class="fh"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>É indicado para ti se:</h3>
+        <ul class="fit-list">
+          <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Te sentes cansada(o), frustrada(o) e preocupada(o) com a alimentação do teu filho;</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Queres perceber porquê que o teu filho não come certos alimentos ou grupos de alimentos e aprender como gerir quando ele diz "não gosto" ou "não quero";</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Sentes que estás sempre a fazer malabarismos para que consigas que o teu filho coma certos alimentos;</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Tens medo que a tua criança não esteja a receber os nutrientes necessários para o seu crescimento saudável;</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Evitas comer fora de casa com o teu filho, ou tens muita dificuldade em gerir as refeições fora de casa;</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Sentes-te a falhar como mãe/pai por não conseguires que o teu filho coma.</li>
+        </ul>
+      </div>
+      <div class="fit-card no sr-hidden">
+        <h3><span class="fh"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Este programa NÃO é para ti se:</h3>
+        <ul class="fit-list">
+          <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Procuras uma solução rápida e milagrosa que faça o teu filho comer;</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Procuras uma metodologia com práticas punitivas ou para "corrigir" a criança;</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Não estás disponível para mudar a forma como olhas para a alimentação da criança;</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Não estás disponível para assistir às aulas (com, em média, 10 minutos cada) no período de 12 meses;</li>
+          <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Não estás disposta(o) a implementar mudanças de forma progressiva e consistente.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMAGINA ============ -->
+<section class="sec sec-imag">
+  <span class="orb tl" aria-hidden="true"></span>
+  <div class="wrap center" style="position:relative;z-index:1">
+    <h2>Imagina como <span class="txt-grad">seria se&hellip;</span></h2>
+  </div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="imag-grid">
+      <div class="imag-card sr-hidden"><span class="ii"><svg viewBox="0 0 24 24"><path d="M3.5 11.2 12 4.5l8.5 6.7"/><path d="M5.6 9.9V18.5a1.1 1.1 0 0 0 1.1 1.1h10.6a1.1 1.1 0 0 0 1.1-1.1V9.9"/><path d="M12 16.9s-2.7-1.6-2.7-3.5a1.55 1.55 0 0 1 2.7-1 1.55 1.55 0 0 1 2.7 1c0 1.9-2.7 3.5-2.7 3.5z"/></svg></span><p>As refeições deixassem de ser uma fonte de stress e voltassem a ser um momento tranquilo em família.</p></div>
+      <div class="imag-card sr-hidden"><span class="ii"><svg viewBox="0 0 24 24"><path d="M2.4 12S6 5.8 12 5.8 21.6 12 21.6 12 18 18.2 12 18.2 2.4 12 2.4 12z"/><circle cx="12" cy="12" r="2.7"/><path d="M12 12h.01"/></svg></span><p>Soubesses interpretar melhor os sinais do teu filho(a), em vez de viver em tentativa e erro.</p></div>
+      <div class="imag-card sr-hidden"><span class="ii"><svg viewBox="0 0 24 24"><path d="M11 14h2a2 2 0 0 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16"/><path d="M7 20l1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="M2 15l6 6"/><path d="M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 16 4a2.78 2.78 0 0 0-5 1.8c0 1.2.8 2 1.5 2.8L16 12z"/></svg></span><p>Aprendesses a ajudá-lo sem recorrer à pressão, chantagens, negociações ou distrações.</p></div>
+      <div class="imag-card sr-hidden"><span class="ii"><svg viewBox="0 0 24 24"><path d="M12 20.2s-7.1-4.6-7.1-9.7a3.65 3.65 0 0 1 7.1-1.2 3.65 3.65 0 0 1 7.1 1.2c0 5.1-7.1 9.7-7.1 9.7z"/><path d="M8.9 11.1l2.1 2.1 3.7-3.9"/></svg></span><p>Deixasses de sentir culpa e preocupação sempre que ele(a) recusa um alimento.</p></div>
+      <div class="imag-card sr-hidden"><span class="ii"><svg viewBox="0 0 24 24"><path d="M12 7.9c-1.7-1.9-4.5-1.9-6-.2-1.7 1.7-1.7 5.1-.2 8 1.1 2.1 2.6 3.7 4 3.7.9 0 1.3-.5 2.2-.5s1.3.5 2.2.5c1.3 0 2.9-1.6 4-3.7 1.5-2.9 1.5-6.3-.2-8-1.5-1.7-4.3-1.7-6 .2z"/><path d="M12 7.9V5.4"/><path d="M12 6c.3-1.6 1.5-2.8 3.1-3-.2 1.6-1.5 2.8-3.1 3z"/></svg></span><p>Soubesses como garantir os nutrientes essenciais de que o teu filho precisa, mesmo quando recusa alguns alimentos ou grupos alimentares inteiros.</p></div>
+      <div class="imag-card sr-hidden"><span class="ii"><svg viewBox="0 0 24 24"><path d="M4 20h15.5"/><rect x="6" y="13" width="2.7" height="7" rx=".7"/><rect x="10.6" y="9" width="2.7" height="11" rx=".7"/><rect x="15.2" y="4.8" width="2.7" height="15.2" rx=".7"/></svg></span><p>Conseguisses perceber o que é esperado para a idade dele e aquilo que merece uma atenção mais especializada.</p></div>
+      <div class="imag-card sr-hidden"><span class="ii"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"/><circle cx="12" cy="12" r=".9"/><path d="M12 3.4v1.6"/></svg></span><p>Deixasses de procurar mais truques e dicas na internet porque finalmente tens um caminho claro.</p></div>
+      <div class="imag-card sr-hidden"><span class="ii"><svg viewBox="0 0 24 24"><path d="M12 3.2l7 2.5v5.6c0 4.5-3 7.7-7 9.1-4-1.4-7-4.6-7-9.1V5.7z"/><path d="M8.7 12l2.3 2.3 4.3-4.5"/></svg></span><p>Ganhasses confiança para tomar decisões informadas, sem viver entre opiniões contraditórias.</p></div>
+    </div>
+    <p class="imag-bridge sr-hidden">É exatamente isso que queremos construir no<br class="brk-desk"> <b>Programa À Mesa em Paz.</b></p>
+  </div>
+</section>
+
+<!-- ============ SECÇÃO 3 — MÉTODO M.E.S.A ============ -->
+<section class="sec sec-mesa">
+  <div class="wave-divider" aria-hidden="true">
+    <svg class="wd-curve" viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="wd-fill" d="M0,0 L600,0 C660,0 690,48 720,48 C750,48 780,0 840,0 L1440,0 L1440,0 L0,0 Z"/>
+      <path class="wd-crest" d="M600,0 C660,0 690,48 720,48 C750,48 780,0 840,0"/>
+    </svg>
+    <span class="wd-circle"><svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m6 13 6 6 6-6"/></svg></span>
+  </div>
+  <span class="orb br coral" aria-hidden="true"></span>
+  <div class="wrap center" style="position:relative;z-index:1">
+    <span class="eyebrow">O caminho</span>
+    <h2>Método <span class="txt-grad">M.E.S.A</span></h2>
+    <p class="lead maxw">O caminho que vais percorrer para transformar as refeições:</p>
+    <div class="mesa-letters sr-hidden">
+      <div class="mesa-l"><span class="ml-letter">M</span></div>
+      <div class="mesa-l"><span class="ml-letter">E</span></div>
+      <div class="mesa-l"><span class="ml-letter">S</span></div>
+      <div class="mesa-l"><span class="ml-letter">A</span></div>
+    </div>
+    <div class="mesa-diagram sr-hidden">
+      <img src="assets/metodo-mesa.png" width="1920" height="1080" loading="lazy" alt="Diagrama do Método M.E.S.A — Mapear, Entender, Simplificar, Aproximar">
+    </div>
+    <p class="mesa-bridge sr-hidden">As refeições não precisam de continuar a ser uma luta. Se continuares a fazer o que tens feito até agora, é provável que a frustração continue igual. Mas se tiveres um caminho claro, apoio profissional e estratégias adequadas à realidade do teu filho, as coisas podem começar a mudar. <strong>Não da noite para o dia. Mas passo a passo.</strong> É isso que vamos trabalhar neste programa, enquanto garantimos que o teu filho recebe os nutrientes que precisa.</p>
+    <div style="margin-top:30px"><a href="#oferta" class="btn lg">Quero fazer parte</a></div>
+  </div>
+</section>
+
+<!-- ============ SECÇÃO 4a — 6 MÓDULOS (timeline) ============ -->
+<section class="sec sec-mod">
+  <div class="wrap">
+    <div class="mod-split">
+      <div class="mod-head">
+        <span class="eyebrow coral">O que vais ter acesso</span>
+        <h2>Curso completo com <span class="txt-grad">6 módulos práticos</span></h2>
+        <p class="lead">Um caminho pensado passo a passo &mdash; do acolhimento à aproximação da criança aos alimentos, no teu ritmo.</p>
+        <div class="mh-note">Aulas objetivas, com <b>cerca de 10 minutos cada</b>, para veres e reveres quando te for mais conveniente.</div>
+      </div>
+      <div class="steps" id="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Acolhimento</h3><p>Deixo de olhar para a recusa alimentar do meu filho como uma falha minha ou da criança e começo a perceber que existe um caminho.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Garantir a nutrição de uma criança que não come</h3><p>Aprendo a fortificar a alimentação do meu filho de acordo com os alimentos que não come e a identificar situações que exigem maior atenção.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Quando comer se torna difícil</h3><p>Consigo entender o que é esperado, o que precisa de estratégia e o que exige avaliação individual.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Entender a criança</h3><p>Compreendo o que está por detrás da recusa alimentar e aprendo a responder com mais segurança e menos conflito.</p></div></div>
+        <div class="step"><div class="step-num">5</div><div class="step-body"><h3>Transformar as refeições</h3><p>Percebo como a dinâmica familiar pode alimentar o problema ou ajudar a resolvê-lo, e começo a criar um ambiente às refeições mais previsível e menos tenso.</p></div></div>
+        <div class="step"><div class="step-num">6</div><div class="step-body"><h3>Aproximar a criança dos alimentos, passo a passo</h3><p>Deixo de tentar convencer o meu filho a comer e passo a criar oportunidades seguras para ele se aproximar dos alimentos.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECÇÃO 4b — RESTANTE DO ACESSO (bento) ============ -->
+<section class="sec sec-acesso">
+  <span class="orb br" aria-hidden="true"></span>
+  <div class="wrap center" style="position:relative;z-index:1">
+    <span class="eyebrow outline">Muito além das aulas</span>
+    <h2>Tudo o que está <span class="txt-grad">incluído</span></h2>
+  </div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="acesso-grid">
+      <div class="acesso-item feat sr-hidden">
+        <div class="ahex"><span class="ahex-in"><svg viewBox="0 0 24 24"><path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="3"/><path d="M21 20v-2a4 4 0 0 0-3-3.8"/></svg></span></div>
+        <div class="acesso-card">
+          <h3>3 meses de acompanhamento em Comunidade</h3>
+          <p>Não estarás sozinha(o) nesta jornada. Terás acesso a uma comunidade de famílias com os mesmos desafios, para partilhas e apoio diário, e terás sempre o acompanhamento da nutricionista para ajudar nas dúvidas do dia-a-dia, num ambiente acolhedor, sem julgamentos nem fundamentalismos.</p>
+        </div>
+      </div>
+      <div class="acesso-item sr-hidden">
+        <div class="ahex"><span class="ahex-in"><svg viewBox="0 0 24 24"><path d="M15 10l4.5-2.5v9L15 14M4 6h9a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/></svg></span></div>
+        <div class="acesso-card">
+          <h3>Sessões de dúvidas mensais ao vivo, em direto</h3>
+          <p>Antes de cada sessão será enviado um formulário para escreveres as tuas dúvidas, situação ou o que te está a preocupar mais.</p>
+          <p class="small-note">Nota: as sessões ao vivo respondem às questões mais comuns e não substituem consulta de nutrição pediátrica individualizada.</p>
+        </div>
+      </div>
+      <div class="acesso-item feat sr-hidden">
+        <div class="ahex"><span class="ahex-in"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6 2 2 6-6a4 4 0 0 0 5.4-5.4l-2.3 2.3-2-2z"/></svg></span></div>
+        <div class="acesso-card">
+          <h3>Ferramentas e Estratégias</h3>
+          <p>Terás acesso a materiais de apoio, conteúdos complementares e ferramentas para aplicares em tua casa o que aprendes em cada módulo.</p>
+        </div>
+      </div>
+      <div class="acesso-item sr-hidden">
+        <div class="ahex"><span class="ahex-in"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span></div>
+        <div class="acesso-card">
+          <h3>12 meses de acesso à plataforma</h3>
+          <p>Para veres e reveres sempre que sentires necessidade.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECÇÃO 5 — BÓNUS ============ -->
+<section class="sec sec-bonus">
+  <div class="wrap center">
+    <span class="eyebrow coral">Bónus &amp; ofertas especiais</span>
+    <h2>Ao entrares neste programa <span class="txt-grad">vais receber</span></h2>
+  </div>
+  <div class="wrap">
+    <div class="bonus-bento">
+      <div class="bonus-card wide sr-hidden">
+        <img class="bonus-img" src="assets/cards/bonus-ocupacional.jpg" alt="Masterclass — Terapeuta Ocupacional" loading="lazy">
+        <span class="btag">Masterclass 1</span>
+        <h3>Terapeuta Ocupacional</h3>
+        <p>O meu filho é seletivo ou existem dificuldades sensoriais envolvidas? &mdash; <span class="tbc">Profissional ainda não definido</span></p>
+      </div>
+      <div class="bonus-card wide dark sr-hidden">
+        <img class="bonus-img" src="assets/cards/bonus-fala.jpg" alt="Masterclass — Terapeuta da Fala" loading="lazy">
+        <span class="btag">Masterclass 2</span>
+        <h3>Margarida Ravara &middot; Terapeuta da Fala</h3>
+        <p>Especializada em Perturbações Alimentares Pediátricas: "Mastigar, engolir e comer: o que é esperado para cada idade?"</p>
+      </div>
+      <div class="bonus-card sr-hidden">
+        <img class="bonus-img" src="assets/cards/bonus-receitas.jpg" alt="Bónus — Receitas" loading="lazy">
+        <span class="btag">Bónus</span>
+        <h3>Receitas</h3>
+      </div>
+      <div class="bonus-card dark sr-hidden">
+        <img class="bonus-img" src="assets/cards/bonus-recursos.jpg" alt="Bónus — Recursos e livros infantis" loading="lazy">
+        <span class="btag">Bónus</span>
+        <h3>Recursos que ajudam no processo</h3>
+        <p>Sugestão de livros infantis, utensílios e outros recursos que ajudam no processo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BARRAS RETAS antes da oferta ============ -->
+<div class="strips" aria-hidden="true">
+  <div class="strip sage">
+    <div class="marquee-track strip-a">
+      <span class="mq-seg"><span>1ª Edição</span><span class="dot">&bull;</span><span>Curso completo</span><span class="dot">&bull;</span><span>Comunidade</span><span class="dot">&bull;</span><span>Sessões ao vivo</span><span class="dot">&bull;</span><span>Masterclasses</span><span class="dot">&bull;</span><span>1ª Edição</span><span class="dot">&bull;</span><span>Curso completo</span><span class="dot">&bull;</span><span>Comunidade</span><span class="dot">&bull;</span><span>Sessões ao vivo</span><span class="dot">&bull;</span><span>Masterclasses</span><span class="dot">&bull;</span></span><span class="mq-seg"><span>1ª Edição</span><span class="dot">&bull;</span><span>Curso completo</span><span class="dot">&bull;</span><span>Comunidade</span><span class="dot">&bull;</span><span>Sessões ao vivo</span><span class="dot">&bull;</span><span>Masterclasses</span><span class="dot">&bull;</span><span>1ª Edição</span><span class="dot">&bull;</span><span>Curso completo</span><span class="dot">&bull;</span><span>Comunidade</span><span class="dot">&bull;</span><span>Sessões ao vivo</span><span class="dot">&bull;</span><span>Masterclasses</span><span class="dot">&bull;</span></span>
+    </div>
+  </div>
+  <div class="strip coral">
+    <div class="marquee-track strip-b">
+      <span class="mq-seg"><span>12 meses de acesso</span><span class="dot">&bull;</span><span>Ferramentas práticas</span><span class="dot">&bull;</span><span>Receitas</span><span class="dot">&bull;</span><span>12 meses de acesso</span><span class="dot">&bull;</span><span>Ferramentas práticas</span><span class="dot">&bull;</span><span>Receitas</span><span class="dot">&bull;</span><span>12 meses de acesso</span><span class="dot">&bull;</span><span>Ferramentas práticas</span><span class="dot">&bull;</span><span>Receitas</span><span class="dot">&bull;</span></span><span class="mq-seg"><span>12 meses de acesso</span><span class="dot">&bull;</span><span>Ferramentas práticas</span><span class="dot">&bull;</span><span>Receitas</span><span class="dot">&bull;</span><span>12 meses de acesso</span><span class="dot">&bull;</span><span>Ferramentas práticas</span><span class="dot">&bull;</span><span>Receitas</span><span class="dot">&bull;</span><span>12 meses de acesso</span><span class="dot">&bull;</span><span>Ferramentas práticas</span><span class="dot">&bull;</span><span>Receitas</span><span class="dot">&bull;</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SECÇÃO 6 — OFERTA / PREÇO ============ -->
+<section class="sec sec-oferta" id="oferta">
+  <span class="orb tl" aria-hidden="true"></span>
+  <div class="wrap center" style="position:relative;z-index:1">
+    <span class="eyebrow">A oferta</span>
+    <h2 style="padding-bottom:350px">Entra na <span class="txt-grad">1ª Edição</span> do Programa À Mesa em Paz</h2>
+  </div>
+  <div class="wrap">
+    <div class="price-wrap">
+      <div class="price-side sr-hidden">
+        <span class="urg">1ª Edição &middot; vagas limitadas</span>
+        <ul>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Curso completo com 6 módulos práticos</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>3 meses de acompanhamento em Comunidade</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Sessões mensais em direto para esclarecimento de dúvidas</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Masterclasses com especialistas</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Ferramentas práticas</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Recursos complementares de apoio</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>12 meses de acesso à plataforma</li>
+        </ul>
+      </div>
+      <div class="price-box-shell">
+<img class="price-photo" src="assets/ana-preco-cut.png" width="701" height="1018" loading="lazy" alt="Ana Rodrigues Lopes, Nutricionista Pediátrica">
+      <div class="price-box sr-hidden">
+        <span class="selo">1ª Edição do Programa</span>
+        <div class="now-label">Investimento único</div>
+        <div class="price">250&euro;</div>
+        <div class="inst">ou <b>2 x 125&euro;</b></div>
+        <a href="#" class="btn full">Quero fazer parte</a>
+        <div class="seals">
+          <span>12 meses de acesso</span>
+          <span>Acompanhamento incluído</span>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECÇÃO 7 — TESTEMUNHOS ============ -->
+<section class="sec sec-test">
+  <div class="wrap center">
+    <span class="eyebrow outline">Testemunhos</span>
+    <h2>O que dizem <span class="txt-grad">as famílias</span> acompanhadas por mim</h2>
+  </div>
+  <div class="wrap">
+    <div class="test-grid">
+      <figure class="test-card sr-hidden"><img src="assets/testemunhos/test-1.jpg" loading="lazy" alt="Testemunho de família acompanhada pela Ana"></figure>
+      <figure class="test-card sr-hidden"><img src="assets/testemunhos/test-2.jpg" loading="lazy" alt="Testemunho de família acompanhada pela Ana"></figure>
+      <figure class="test-card sr-hidden"><img src="assets/testemunhos/test-3.jpg" loading="lazy" alt="Testemunho de família acompanhada pela Ana"></figure>
+      <figure class="test-card sr-hidden"><img src="assets/testemunhos/test-4.jpg" loading="lazy" alt="Testemunho de família acompanhada pela Ana"></figure>
+      <figure class="test-card sr-hidden"><img src="assets/testemunhos/test-5.jpg" loading="lazy" alt="Testemunho de família acompanhada pela Ana"></figure>
+      <figure class="test-card sr-hidden"><img src="assets/testemunhos/test-6.jpg" loading="lazy" alt="Testemunho de família acompanhada pela Ana"></figure>
+      <figure class="test-card sr-hidden"><img src="assets/testemunhos/test-7.jpg" loading="lazy" alt="Testemunho de família acompanhada pela Ana"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECÇÃO 8 — SOBRE A ANA ============ -->
+<section class="sec sec-sobre">
+  <div class="wrap">
+    <div class="sobre-split">
+      <div class="sobre-visual sr-hidden">
+        <div class="sobre-photo">
+          <span class="prod-glow" aria-hidden="true"></span>
+          <div class="prod-frame">
+            <img id="foto-ana" src="assets/ana-sobre.jpg" width="1000" height="1500" loading="lazy" alt="Ana Rodrigues Lopes, Nutricionista Pediátrica">
+          </div>
+        </div>
+        <div class="sobre-seal">
+          <div class="seal">
+            <div class="seal-glow" aria-hidden="true"></div>
+            <div class="seal-disc" aria-hidden="true"></div>
+            <div class="seal-rot" aria-hidden="true">
+              <svg viewBox="0 0 132 132"><defs><path id="sealPath" d="M 66 66 m -52 0 a 52 52 0 1 1 104 0 a 52 52 0 1 1 -104 0"/></defs>
+                <text class="seal-text"><textPath href="#sealPath" startOffset="0">NUTRICIONISTA PEDIÁTRICA &middot; CP 2069N &middot; GET PERMISSION APPROACH &middot; </textPath></text>
+              </svg>
+            </div>
+            <div class="seal-core"><span class="sc-num">13</span><span class="sc-lab">anos</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="sobre-body sr-hidden">
+        <span class="eyebrow coral">Sobre mim</span>
+        <h2>Olá, sou a <span class="txt-grad">Ana!</span></h2>
+        <p>Sou Nutricionista Pediátrica (2069N), mãe de duas crianças e, antes de tudo isto, fui uma criança seletiva. Daquelas que fugia da mesa, demorava uma eternidade a comer, e que ainda hoje se lembra da ansiedade que sentia perante algumas refeições. Talvez por isso este tema me seja tão próximo.</p>
+        <p>Cresci e, meio que por acaso, a nutrição escolheu-me. Sou Nutricionista (CP n.º 2069N) há 13 anos, Pós-Graduada em Nutrição Pediátrica e Escolar, Profissional de Saúde Neurocompatível&reg; e tenho formação na Get Permission Approach&reg;, uma abordagem internacional para crianças com recusa e seletividade alimentar, que procura compreender a criança antes de intervir, ajudando as famílias a construir refeições mais tranquilas e positivas.</p>
+        <p>Acompanho diariamente famílias que vivem exatamente aquilo que talvez estejas a viver agora: preocupação, frustração e a sensação de não saber o que fazer para ajudar o filho a comer. E compreendo bem esta realidade: eu própria já passei (e continuo a passar) por desafios com a alimentação dos meus filhos.</p>
+        <p>Foi por isso que criei o Programa À Mesa em Paz. Porque acredito que <strong>as refeições devem ser momentos de encontro, partilha, ligação e nutrição</strong> &mdash; e não uma fonte constante de stress e conflito.</p>
+        <div class="sobre-creds">
+          <span class="cred"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Nutricionista CP n.º 2069N</span>
+          <span class="cred"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>13 anos de experiência</span>
+          <span class="cred"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Pós-Graduada em Nutrição Pediátrica e Escolar</span>
+          <span class="cred"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Get Permission Approach&reg;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECÇÃO 9 — FAQ ============ -->
+<section class="sec sec-faq">
+  <div class="wrap center">
+    <span class="eyebrow">Perguntas frequentes</span>
+    <h2>Ainda com <span class="txt-grad">dúvidas?</span></h2>
+  </div>
+  <div class="wrap">
+    <div class="faq-list">
+      <details class="faq-item"><summary>Tenho de estar presente em horários específicos?<span class="fq-ico"></span></summary><div class="faq-ans"><p>Não. Os conteúdos principais do programa são gravados e podem ser vistos quando te for mais conveniente. As sessões mensais de dúvidas decorrem em direto, mas serão gravadas para que possas assistir posteriormente caso não consigas estar presente.</p></div></details>
+      <details class="faq-item"><summary>Sinto que sou uma péssima mãe/pai e tenho vergonha de algumas das coisas que já fiz para o meu filho comer. Este programa é para mim?<span class="fq-ico"></span></summary><div class="faq-ans"><p>Sim. Aliás, esta é uma das situações mais comuns. Muitos pais chegam-me cansados, frustrados e carregados de culpa. Já insistiram, pressionaram, fizeram promessas, distraíram com desenhos animados ou prepararam várias refeições diferentes porque estavam desesperados por ver os filhos comer.</p><p>A verdade é que, quando vemos um filho a comer muito pouco, é natural que tentemos fazer tudo o que está ao nosso alcance. Neste programa não vais encontrar julgamentos. Vais encontrar informação, orientação e um espaço seguro para aprender novas formas de lidar com estas situações. E também uma comunidade com famílias com os mesmos desafios que tu.</p><p>A culpa não ajuda a resolver o problema. O conhecimento e o apoio certo sim.</p></div></details>
+      <details class="faq-item"><summary>O meu parceiro(a) ou a minha família não colaboram. Ainda vale a pena entrar?<span class="fq-ico"></span></summary><div class="faq-ans"><p>Sim. Idealmente todos os adultos envolvidos estariam alinhados, mas a realidade nem sempre é essa. Mesmo quando apenas um dos cuidadores começa a mudar a forma como comunica e gere as refeições, é possível criar mudanças importantes.</p><p>Além disso, ao compreenderes melhor o que está a acontecer e os motivos por detrás das estratégias propostas, será mais fácil explicares o processo aos restantes familiares e envolvê-los gradualmente.</p></div></details>
+      <details class="faq-item"><summary>É garantido que o meu filho vai começar a comer alimentos que recusa durante o programa?<span class="fq-ico"></span></summary><div class="faq-ans"><p>Não. Seria pouco honesto fazer essa promessa. Cada criança tem a sua história alimentar, as suas características individuais e o seu próprio ritmo.</p><p>Aquilo que posso garantir é que vais aprender a criar condições mais favoráveis para a aprendizagem alimentar e para a aproximação aos alimentos, bem como garantir que a criança recebe os nutrientes que pode ter em falta devido à sua recusa alimentar.</p><p>Os resultados dependem de muitos fatores, incluindo o ponto de partida da criança, a existência de outras dificuldades associadas e, sobretudo, o grau de compromisso da família com a implementação das estratégias. Quanto maior for o envolvimento da família na aplicação prática dos conteúdos, maior tende a ser o potencial de mudança.</p></div></details>
+      <details class="faq-item"><summary>O meu filho tem autismo, PHDA ou outra condição do neurodesenvolvimento. Este programa é adequado?<span class="fq-ico"></span></summary><div class="faq-ans"><p>Sim. Antes de qualquer diagnóstico, estamos a falar de uma criança. E muitos dos princípios fundamentais da alimentação infantil continuam a ser importantes independentemente da existência de uma condição do neurodesenvolvimento.</p><p>Ao longo do programa encontrarás também conteúdos específicos relacionados com crianças neurodivergentes, incluindo algumas adaptações e desafios mais frequentes nestas situações. No entanto, dependendo das necessidades da criança, este programa poderá complementar &mdash; mas não substituir &mdash; o acompanhamento individualizado por outros profissionais.</p></div></details>
+      <details class="faq-item"><summary>Ao entrar neste programa deixo de precisar de acompanhamento por outros profissionais?<span class="fq-ico"></span></summary><div class="faq-ans"><p>Não necessariamente. O Programa À Mesa em Paz foi criado para ajudar famílias que lidam com dificuldades alimentares na infância e vai dar-te ferramentas muito práticas para aplicares no dia a dia.</p><p>Ao longo do programa vais aprender a perceber melhor o que está por detrás das dificuldades alimentares do teu filho, a identificar alguns sinais que podem justificar uma avaliação mais individualizada e a compreender quando faz sentido procurar apoio adicional.</p><p>Além disso, terás acesso a masterclasses com outros profissionais que trabalham frequentemente com crianças com dificuldades alimentares, incluindo uma Terapeuta Ocupacional e uma Terapeuta da Fala. O objetivo é que compreendas melhor o papel de cada profissional e saibas quando e como cada intervenção pode ajudar o teu filho.</p><p>Quando existe necessidade de acompanhamento por outros profissionais, o programa não o substitui &mdash; complementa-o, ajudando-te a compreender melhor o processo e a aplicar estratégias no dia a dia da tua família.</p></div></details>
+      <details class="faq-item"><summary>Já somos acompanhados em Terapia Ocupacional e/ou Terapia da Fala. Este programa faz sentido para nós?<span class="fq-ico"></span></summary><div class="faq-ans"><p>Sim, faz todo o sentido. O Programa À Mesa em Paz não substitui esse acompanhamento. Complementa-o. Enquanto as terapias trabalham objetivos específicos, este programa ajuda-te a perceber melhor a recusa alimentar da tua criança e como aplicar estratégias no dia a dia da tua família, durante as refeições reais que acontecem em casa.</p><p>Muitas vezes os pais já estão a trabalhar estas questões com outros profissionais, mas continuam com uma preocupação muito legítima: "Enquanto estamos neste processo, será que lhe faltam nutrientes importantes?"</p><p>Ao longo do programa vais aprender também a olhar para esta questão com mais segurança e a perceber como garantir uma alimentação nutricionalmente adequada dentro da realidade atual do teu filho.</p></div></details>
+      <details class="faq-item"><summary>E se eu não tiver muito tempo disponível?<span class="fq-ico"></span></summary><div class="faq-ans"><p>O programa foi pensado para famílias reais, com rotinas exigentes. As aulas são objetivas, práticas e podem ser vistas ao teu ritmo.</p><p>Mas é importante ser transparente: ver os conteúdos não é suficiente. Para que existam mudanças, é necessário implementar aquilo que vais aprendendo e experimentar novas formas de lidar com as refeições.</p><p>Não precisas de fazer tudo de uma vez nem de ser perfeita(o). Mas precisas de estar disponível para dar pequenos passos consistentes ao longo do tempo. É esse compromisso que cria os resultados.</p></div></details>
+      <details class="faq-item"><summary>Durante quanto tempo tenho acesso ao programa?<span class="fq-ico"></span></summary><div class="faq-ans"><p>Após os 3 meses terminam o acompanhamento em comunidade e as sessões de dúvidas incluídas no programa. No entanto, terás acesso aos conteúdos gravados durante 12 meses, para reveres sempre que precisares e continuares a aplicar as estratégias a longo prazo.</p></div></details>
+      <details class="faq-item"><summary>O meu filho come apenas 5 ou 6 alimentos. Este programa é para nós?<span class="fq-ico"></span></summary><div class="faq-ans"><p>Sim. Embora o programa não seja exclusivo para crianças que comem apenas 5 ou 6 alimentos, muitas famílias nessa situação encontram nele um apoio importante. Quando uma criança aceita um número muito reduzido de alimentos, é natural que os pais se sintam preocupados e sem saber o que fazer.</p><p>Ao longo do programa vais aprender a perceber melhor o que pode estar por detrás dessa dificuldade e como ajudar o teu filho a aumentar gradualmente o seu repertório alimentar, de forma respeitosa e sem pressão.</p><p>Em muitos destes casos, pode também ser necessário um acompanhamento individualizado em consulta. Isto porque algumas crianças não conseguem atingir as suas necessidades nutricionais apenas através da alimentação e, enquanto trabalhamos para aumentar a aceitação alimentar, pode ser necessário avaliar a necessidade de suplementação de alguns nutrientes. Essa avaliação deve ser sempre feita de forma individualizada.</p><p>O programa dá-te as bases para compreenderes o processo, aplicares estratégias no dia a dia e tirares maior partido de um eventual acompanhamento em consulta.</p></div></details>
+      <details class="faq-item"><summary>O meu filho já tem 5 ou 6 anos. Ainda vamos a tempo?<span class="fq-ico"></span></summary><div class="faq-ans"><p>Sim. Nunca é tarde para melhorar a relação de uma criança com a comida. No entanto, é importante ser realista: quando a dificuldade alimentar já existe há vários anos, normalmente também já existem hábitos, rotinas e emoções muito enraizados, tanto na criança como na família.</p><p>Isso significa que o processo pode exigir mais tempo, mais consistência e mais paciência do que numa criança em que as dificuldades surgiram mais recentemente. Mas difícil não significa impossível. Com as estratégias adequadas e o envolvimento da família, é possível criar mudanças importantes, reduzir conflitos à mesa e ajudar a criança a desenvolver uma relação mais positiva com a comida.</p></div></details>
+      <details class="faq-item"><summary>E se tiver outras dúvidas antes de comprar?<span class="fq-ico"></span></summary><div class="faq-ans"><p>Fala comigo por WhatsApp (915 272 031) ou e-mail <span class="tbc">inserir aqui e-mail</span>.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="sec sec-final">
+  <div class="wrap">
+    <div class="final-inner sr-hidden">
+      <span class="eyebrow" style="margin:0 auto 16px">Se já tentaste de tudo</span>
+      <h2>Já tentaste de tudo? <span class="txt-grad">Deixa-me dizer-te uma coisa.</span></h2>
+      <p class="lead">Quando tentas estratégias soltas, que não estão adaptadas à tua criança e à fase alimentar em que se encontra, é normal não teres resultados. <strong>Os resultados aparecem quando entendes o porquê da recusa do teu filho, sabes como falar com ele e como guiar as situações de recusa e tens um caminho claro e prático para o aproximar aos alimentos que está a recusar.</strong></p>
+      <a href="#oferta" class="btn lg">Quero fazer parte</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">
+      <img id="logo-footer" src="assets/logo-mesa-em-paz.png" width="760" height="258" loading="lazy" alt="À Mesa em Paz — Nutrição Pediátrica">
+    </div>
+    <a class="foot-wpp" href="https://wa.me/351915272031" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg>
+      WhatsApp: 915 272 031
+    </a>
+    <p class="foot-anacom">(chamada para rede móvel nacional)</p>
+    <div class="foot-links">
+      <a href="#">Política de Privacidade</a>
+      <a href="#">Termos e Condições</a>
+      <a href="https://www.livroreclamacoes.pt/" target="_blank" rel="noopener">Livro de Reclamações</a>
+    </div>
+    <p class="foot-copy">À Mesa em Paz by Ana Rodrigues Lopes &ndash; Todos os direitos reservados</p>
+  </div>
+</footer>
+
+<script>
+/* ===== Scroll reveal (stagger por irmão) ===== */
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window)){
+    Array.prototype.forEach.call(document.querySelectorAll('.sr-hidden'),function(el){el.classList.add('sr-visible')});
+    return;
+  }
+  var targets=document.querySelectorAll('.sr-hidden');
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var el=entry.target;
+        var siblings=el.parentElement?Array.prototype.filter.call(el.parentElement.children,function(c){return c.classList.contains('sr-hidden')}):[];
+        var idx=siblings.indexOf(el);
+        setTimeout(function(){el.classList.add('sr-visible')},(idx>0?idx:0)*80);
+        io.unobserve(el);
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  Array.prototype.forEach.call(targets,function(el){io.observe(el)});
+})();
+
+/* ===== Timeline dos 6 módulos: preenche a linha no scroll + revela steps ===== */
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var wrap=document.getElementById('steps');
+  if(!wrap)return;
+  var items=wrap.querySelectorAll('.step');
+  if(reduce){
+    wrap.style.setProperty('--fill','1');
+    Array.prototype.forEach.call(items,function(s){s.classList.add('show')});
+    return;
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          Array.prototype.forEach.call(items,function(s,i){setTimeout(function(){s.classList.add('show')},i*140)});
+          io.disconnect();
+        }
+      });
+    },{threshold:.2});
+    io.observe(wrap);
+  }else{
+    Array.prototype.forEach.call(items,function(s){s.classList.add('show')});
+  }
+  var ticking=false;
+  function update(){
+    ticking=false;
+    var r=wrap.getBoundingClientRect();
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    var start=vh*0.80, end=vh*0.40;
+    var p=(start-r.top)/((start-end)+r.height);
+    p=Math.max(0,Math.min(1,p));
+    wrap.style.setProperty('--fill',p.toFixed(4));
+  }
+  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(update);}}
+  window.addEventListener('scroll',onScroll,{passive:true,capture:true});
+  document.addEventListener('scroll',onScroll,{passive:true,capture:true});
+  window.addEventListener('resize',onScroll,{passive:true});
+  update();
+})();
+</script>
+</body>
+</html>
