@@ -73,11 +73,11 @@ section{position:relative}
 .ph::before{content:"IMAGEM A FORNECER";position:absolute;top:11px;left:50%;transform:translateX(-50%);font-size:8.5px;letter-spacing:2px;font-weight:600;color:var(--texto2)}
 .ph .ph-dim{display:block;margin-top:6px;font-size:10.5px;font-weight:500;letter-spacing:.4px;color:var(--texto2)}
 .tbc{position:relative;display:inline-block;background:rgba(233,152,122,.16);border:1px dashed #CE6B49;color:#9c4a2e;font-weight:700;padding:1px 8px;border-radius:6px;white-space:nowrap}
-body.has-preview-bar{padding-top:42px}
-.preview-bar{position:fixed;top:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,#E9987A,#CE6B49);color:#fff;font-family:'Inter',sans-serif;font-weight:600;font-size:.82rem;line-height:1.35;text-align:center;padding:9px 46px 9px 18px}
-.preview-bar b{font-weight:800}
-.preview-bar .close{position:absolute;top:50%;right:12px;transform:translateY(-50%);background:rgba(0,0,0,.18);color:#fff;border:none;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:1rem;line-height:1;font-weight:800;display:grid;place-items:center}
-.preview-bar .close:hover{background:rgba(0,0,0,.32)}
+
+
+
+
+
 /* ORBE */
 .orb{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(111,164,136,.20),rgba(233,152,122,.08) 42%,transparent 70%);filter:blur(30px);pointer-events:none;z-index:0;animation:orbBreath 9s ease-in-out infinite}
 .orb.coral{background:radial-gradient(circle,rgba(233,152,122,.22),rgba(111,164,136,.06) 44%,transparent 70%)}
@@ -417,7 +417,7 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
   .price-box{padding:34px 22px}
   .sobre-seal{width:104px;height:104px;bottom:-20px;right:0}
   .seal{width:104px;height:104px}
-  body.has-preview-bar{padding-top:58px}
+  
   .hero{background:linear-gradient(180deg,rgba(251,246,239,.95) 0%,rgba(251,246,239,.72) 30%,rgba(251,246,239,.2) 58%,rgba(251,246,239,0) 100%),url("assets/bg-hero.png") 66% 8%/cover no-repeat,var(--grad-warm)}
   .hero-logo{max-width:190px;margin-bottom:16px}
   .hero-visual{min-height:300px}
@@ -426,11 +426,8 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
 }
 </style>
 </head>
-<body class="has-preview-bar">
-<div class="preview-bar" id="previewBar">
-  PREVIEW &mdash; imagens marcadas como <b>A FORNECER</b> e itens <b>[a confirmar]</b> serão substituídos antes de publicar.
-  <button class="close" type="button" aria-label="Fechar aviso" onclick="var b=document.getElementById('previewBar');b.remove();document.body.classList.remove('has-preview-bar');">&times;</button>
-</div>
+<body>
+
 
 <!-- ============ HERO (SECÇÃO 1) ============ -->
 <section class="hero">
