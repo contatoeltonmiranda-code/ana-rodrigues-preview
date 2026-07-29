@@ -83,7 +83,7 @@ section{position:relative}
 .sr-hidden.sr-visible{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.sr-hidden,.sr-hidden.sr-visible{opacity:1;transform:none;transition:none}*{scroll-behavior:auto}}
 /* HERO */
-.hero{padding:72px 0 96px;background:var(--grad-warm);overflow:hidden;isolation:isolate}
+.hero{padding:72px 0 96px;background:linear-gradient(90deg,rgba(251,246,239,.94) 0%,rgba(251,246,239,.62) 30%,rgba(251,246,239,.12) 50%,rgba(251,246,239,0) 62%),url("assets/hero/prancheta-1.png") 72% center/cover no-repeat,var(--grad-warm);overflow:hidden;isolation:isolate}
 .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 60% 50% at 82% 30%,rgba(233,152,122,.14),transparent 70%),radial-gradient(ellipse 55% 55% at 12% 78%,rgba(111,164,136,.14),transparent 72%)}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;position:relative;z-index:2}
 .hero-logo{display:block;width:100%;max-width:340px;height:auto;margin:0 0 24px}
@@ -252,9 +252,9 @@ section{position:relative}
 .mc-box .mc-who b{color:var(--ink);font-weight:700}
 @media(hover:hover){.mc-item:hover .mc-box{transform:translateY(-5px);box-shadow:var(--sh-mid)}}
 .bonus-intro{text-align:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:clamp(18px,2.1vw,24px);color:var(--ink);max-width:720px;margin:62px auto 0;line-height:1.35}
-.bonus-mont{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:28px auto 0}
-.bm-item{position:relative;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--linha);box-shadow:var(--sh-soft);transition:transform .35s ease,box-shadow .35s ease}
-.bm-item img{width:100%;height:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.bonus-mont{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start;max-width:900px;margin:28px auto 0}
+.bm-item{position:relative;align-self:start;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--linha);box-shadow:var(--sh-soft);transition:transform .35s ease,box-shadow .35s ease}
+.bm-item img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;display:block}
 .bm-item .ph-slot{aspect-ratio:4/5;border-radius:0;border:none}
 @media(hover:hover){.bm-item:hover{transform:translateY(-6px);box-shadow:var(--sh-mid)}}
 /* SEC 6 — OFERTA */
@@ -380,6 +380,7 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
   .wrap{padding:0 18px}
   .sec{padding:60px 0}
   .hero{padding:48px 0 70px}
+  .hero{background:linear-gradient(180deg,rgba(251,246,239,.98) 0%,rgba(251,246,239,.9) 48%,rgba(251,246,239,.18) 74%,rgba(251,246,239,0) 100%),url("assets/hero/prancheta-1.png") 68% bottom/170% auto no-repeat,var(--grad-warm)}
   .hero h1{font-size:clamp(28px,8vw,38px)}
   .hero-start{width:100%;justify-content:center}
   .sec h2{font-size:clamp(25px,7vw,34px)}
@@ -428,21 +429,7 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
       <a href="#oferta" class="btn lg">Quero fazer parte</a>
       <p class="hero-start">Início a 4 de novembro de 2026</p>
     </div>
-    <div class="hero-visual sr-hidden">
-      <div class="hero-back" aria-hidden="true">
-        <!-- FOTO PENDENTE #1: crianca com alimentos (Drive > Fotos). Trocar o <span class="ph-slot"> por <img id="hero-kid-1" src="assets/hero/kid-1.jpg" alt=""> -->
-        <div class="hb hb1"><span class="ph-slot" id="hero-kid-1"></span></div>
-        <!-- FOTO PENDENTE #2: crianca com alimentos (Drive > Fotos). Trocar por <img id="hero-kid-2" src="assets/hero/kid-2.jpg" alt=""> -->
-        <div class="hb hb2"><span class="ph-slot" id="hero-kid-2"></span></div>
-        <!-- FOTO PENDENTE #3: crianca com alimentos (Drive > Fotos). Trocar por <img id="hero-kid-3" src="assets/hero/kid-3.jpg" alt=""> -->
-        <div class="hb hb3"><span class="ph-slot" id="hero-kid-3"></span></div>
-        <!-- FOTO PENDENTE #4: crianca com alimentos (Drive > Fotos). Trocar por <img id="hero-kid-4" src="assets/hero/kid-4.jpg" alt=""> -->
-        <div class="hb hb4"><span class="ph-slot" id="hero-kid-4"></span></div>
-      </div>
-      <div class="hero-photo">
-        <img src="assets/ana-preco-cut.png" width="701" height="1018" alt="Ana Rodrigues Lopes, nutricionista pediátrica">
-      </div>
-    </div>
+    <div class="hero-visual sr-hidden" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -677,7 +664,7 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
         </ul>
       </div>
       <div class="price-box-shell">
-      <img class="price-photo" src="assets/ana-preco-cut.png" width="701" height="1018" loading="lazy" alt="Ana Rodrigues Lopes, Nutricionista Pediátrica">
+      <img class="price-photo" src="assets/ana-oferta-r4.png" width="4000" height="6000" loading="lazy" alt="Ana Rodrigues Lopes, Nutricionista Pediátrica">
       <div class="price-box sr-hidden">
         <span class="selo">1ª Edição do Programa</span>
         <div class="now-label">Investimento único</div>
