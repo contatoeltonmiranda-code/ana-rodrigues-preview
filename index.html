@@ -306,13 +306,16 @@ section{position:relative}
 .sobre-body p strong{color:var(--ink);font-weight:600}
 .sobre-creds{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
 .sobre-creds .cred{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.7);border:1px solid var(--linha);border-radius:50px;padding:8px 15px;font-size:12.5px;color:var(--sage-esc);font-weight:600;box-shadow:0 3px 10px rgba(79,122,99,.08)}
+.form-box{margin-top:28px}
+.form-box h3{font-size:20px}
+.form-box .fit-list li{font-size:14px}
 .sobre-creds .cred svg{width:15px;height:15px;stroke:var(--coral-esc);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .seal{position:relative;width:132px;height:132px}
 .seal .seal-glow{position:absolute;inset:-16px;border-radius:50%;background:radial-gradient(circle,rgba(111,164,136,.28),transparent 66%);animation:orbBreath 4.6s ease-in-out infinite}
 .seal .seal-disc{position:absolute;inset:0;border-radius:50%;background:var(--grad-sage);box-shadow:0 10px 26px rgba(79,122,99,.4)}
 .seal .seal-rot{position:absolute;inset:0;animation:sealSpin 22s linear infinite;will-change:transform}
 .seal .seal-text{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:8px;letter-spacing:.4px;fill:#fff;text-transform:uppercase;text-anchor:middle}
-.seal .seal-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:inset 0 0 0 1px rgba(111,164,136,.3),0 4px 12px rgba(79,122,99,.2)}
+.seal .seal-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:59.1%;height:59.1%;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:inset 0 0 0 1px rgba(111,164,136,.3),0 4px 12px rgba(79,122,99,.2)}
 .seal .seal-core .sc-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:30px;color:var(--coral-esc);line-height:.9}
 .seal .seal-core .sc-lab{font-size:7.5px;letter-spacing:1.2px;color:var(--texto);text-transform:uppercase;font-weight:600;margin-top:2px}
 @keyframes sealSpin{to{transform:rotate(360deg)}}
@@ -379,7 +382,7 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
 @media(max-width:600px){
   .wrap{padding:0 18px}
   .sec{padding:60px 0}
-  .hero{padding:48px 0 70px}
+  .hero{padding:48px 0 50px}
   .hero{background:linear-gradient(180deg,rgba(251,246,239,.98) 0%,rgba(251,246,239,.9) 48%,rgba(251,246,239,.18) 74%,rgba(251,246,239,0) 100%),url("assets/hero/prancheta-1.png") 68% bottom/170% auto no-repeat,var(--grad-warm)}
   .hero h1{font-size:clamp(28px,8vw,38px)}
   .hero-start{width:100%;justify-content:center}
@@ -391,7 +394,7 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
   .bonus-mont{grid-template-columns:1fr;max-width:300px}
   .hero-visual{min-height:370px}
   .hero-back .hb{opacity:.4}
-  .price-side{padding:30px 22px 182px}
+  .price-side{padding:30px 22px 332px}
   .price-photo{width:360px;top:-280px}
   .fit-grid{grid-template-columns:1fr}
   .test-grid{column-count:1}
@@ -406,9 +409,13 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
   .step-num{width:46px;height:46px;font-size:19px}
   .steps::before,.steps::after{left:22px}
   .price-box{padding:34px 22px}
-  .sobre-seal{width:104px;height:104px;bottom:-20px;right:0}
-  .seal{width:104px;height:104px}
-  .hero-logo{max-width:250px;margin-bottom:18px}
+  .sobre-seal{width:126px;height:126px;bottom:-20px;right:0}
+  .seal{width:126px;height:126px}
+  .seal .seal-core{width:54%;height:54%}
+  .seal .seal-text{font-size:9px}
+  .hero-logo{max-width:250px;margin-bottom:18px;padding-top:300px}
+  .hero .pretitle{font-size:10.6px;letter-spacing:.85px;padding:7px 13px}
+  .sec-mod{padding-top:30px}
 }
 </style>
 </head>
@@ -424,7 +431,7 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3v8a4 4 0 0 0 8 0V3M8 3v18M17 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/></svg>
         Crianças seletivas &middot; dos 2 aos 6 anos
       </span>
-      <h1>Aprende como ajudar o teu filho a <span class="txt-grad">comer melhor</span>, com mais confiança e variedade.</h1>
+      <h1>Aprende como ajudar o teu filho a <span class="txt-grad">comer melhor</span>, com mais tranquilidade.</h1>
       <p class="sub">O programa que te ajuda a perceber <strong>porquê que o teu filho não come</strong>, a <strong>reduzir o stress às refeições</strong> e a <strong>ajudá-lo a aproximar-se dos alimentos</strong> com mais confiança.</p>
       <a href="#oferta" class="btn lg">Quero fazer parte</a>
       <p class="hero-start">Início a 4 de novembro de 2026</p>
@@ -542,8 +549,8 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
       <div class="steps" id="steps">
         <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Acolhimento</h3><p>Deixo de olhar para a recusa alimentar do meu filho como uma falha minha ou da criança e começo a perceber que existe um caminho.</p></div></div>
         <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Garantir a nutrição de uma criança que não come</h3><p>Aprendo a fortificar a alimentação do meu filho de acordo com os alimentos que não come e a identificar situações que exigem maior atenção.</p></div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Quando comer se torna difícil</h3><p>Consigo entender o que é esperado, o que precisa de estratégia e o que exige avaliação individual.</p></div></div>
-        <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Entender a criança</h3><p>Compreendo o que está por detrás da recusa alimentar e aprendo a responder com mais segurança e menos conflito.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Entender a criança</h3><p>Consigo entender o que é esperado, o que precisa de estratégia e o que exige avaliação individual.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Quando comer se torna difícil</h3><p>Compreendo o que está por detrás da recusa alimentar e aprendo a responder com mais segurança e menos conflito.</p></div></div>
         <div class="step"><div class="step-num">5</div><div class="step-body"><h3>Transformar as refeições</h3><p>Percebo como a dinâmica familiar pode alimentar o problema ou ajudar a resolvê-lo, e começo a criar um ambiente às refeições mais previsível e menos tenso.</p></div></div>
         <div class="step"><div class="step-num">6</div><div class="step-body"><h3>Aproximar a criança dos alimentos, passo a passo</h3><p>Deixo de tentar convencer o meu filho a comer e passo a criar oportunidades seguras para ele se aproximar dos alimentos.</p></div></div>
       </div>
@@ -689,12 +696,12 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
     <div class="test-grid">
       <figure class="test-card sr-hidden"><img id="test-novo" src="assets/testemunhos/test-novo.jpg" loading="lazy" alt="Testemunho NOVO de família acompanhada pela Ana"></figure>
       <figure class="test-card sr-hidden"><img src="assets/testemunhos/test-1.jpg" loading="lazy" alt="Testemunho de família acompanhada pela Ana"></figure>
+      <figure class="test-card sr-hidden"><img src="assets/testemunhos/test-7.jpg" loading="lazy" alt="Testemunho de família acompanhada pela Ana"></figure>
       <figure class="test-card sr-hidden"><img src="assets/testemunhos/test-2.jpg" loading="lazy" alt="Testemunho de família acompanhada pela Ana"></figure>
       <figure class="test-card sr-hidden"><img src="assets/testemunhos/test-3.jpg" loading="lazy" alt="Testemunho de família acompanhada pela Ana"></figure>
       <figure class="test-card sr-hidden"><img src="assets/testemunhos/test-4.jpg" loading="lazy" alt="Testemunho de família acompanhada pela Ana"></figure>
       <figure class="test-card sr-hidden"><img src="assets/testemunhos/test-5.jpg" loading="lazy" alt="Testemunho de família acompanhada pela Ana"></figure>
       <figure class="test-card sr-hidden"><img src="assets/testemunhos/test-6.jpg" loading="lazy" alt="Testemunho de família acompanhada pela Ana"></figure>
-      <figure class="test-card sr-hidden"><img src="assets/testemunhos/test-7.jpg" loading="lazy" alt="Testemunho de família acompanhada pela Ana"></figure>
     </div>
   </div>
 </section>
@@ -717,10 +724,10 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
             <div class="seal-rot" aria-hidden="true">
               <svg viewBox="0 0 132 132"><defs>
                   <path id="sealTop" d="M 23.13 90.75 A 49.5 49.5 0 1 1 108.87 90.75"/>
-                  <path id="sealBot" d="M 17.94 93.75 A 55.5 55.5 0 0 0 114.06 93.75"/>
+                  <path id="sealBot" d="M 10.83 72 A 55.5 55.5 0 0 0 121.17 72"/>
                 </defs>
                 <text class="seal-text"><textPath href="#sealTop" startOffset="50%">NUTRICIONISTA PEDIÁTRICA E ESCOLAR</textPath></text>
-                <text class="seal-text"><textPath href="#sealBot" startOffset="50%">CP 2069N</textPath></text>
+                <text class="seal-text"><textPath href="#sealBot" startOffset="50%">CP 2069N &middot; ERS: E176637</textPath></text>
               </svg>
             </div>
             <div class="seal-core"></div>
@@ -734,7 +741,21 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
         <p>Cresci e, meio que por acaso, a nutrição escolheu-me. Sou Nutricionista há 13 anos, Pós-Graduada em Nutrição Pediátrica e Escolar, Profissional de Saúde Neurocompatível&reg; e tenho formação na Get Permission Approach&reg;, uma abordagem internacional para crianças com recusa e seletividade alimentar, que procura compreender a criança antes de intervir, ajudando as famílias a construir refeições mais tranquilas e positivas.</p>
         <p>Acompanho diariamente famílias que vivem exatamente aquilo que talvez estejas a viver agora: preocupação, frustração e a sensação de não saber o que fazer para ajudar o filho a comer. E compreendo bem esta realidade: eu própria já passei (e continuo a passar) por desafios com a alimentação dos meus filhos.</p>
         <p>Foi por isso que criei o Programa À Mesa em Paz. Porque acredito que <strong>as refeições devem ser momentos de encontro, partilha, ligação e nutrição</strong> &mdash; e não uma fonte constante de stress e conflito.</p>
-      </div>
+
+        <div class="fit-card yes form-box">
+          <h3><span class="fh"><svg viewBox="0 0 24 24"><path d="M4 7.5 12 4l8 3.5-8 3.5z"/><path d="M7.5 9.6v4.2c0 1.4 2 2.4 4.5 2.4s4.5-1 4.5-2.4V9.6"/><path d="M20 7.5v5"/></svg></span>Formação</h3>
+          <ul class="fit-list">
+            <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Nutricionista, membro efetivo da Ordem dos Nutricionistas (C.P. 2069N)</li>
+            <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Pós-Graduação em Nutrição Pediátrica e Escolar</li>
+            <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Pós-Graduação em Higiene e Segurança Alimentar</li>
+            <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Formação avançada em Introdução Alimentar – um método individualizado</li>
+            <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Curso de Suporte Básico de Vida Pediátrico</li>
+            <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Curso de Primeiros Socorros Pediátricos</li>
+            <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Certificação de Profissionais de Saúde Neurocompatíveis®</li>
+            <li><span class="mk"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Certificação em Get Permission Approach®</li>
+          </ul>
+        </div>
+            </div>
     </div>
   </div>
 </section>
