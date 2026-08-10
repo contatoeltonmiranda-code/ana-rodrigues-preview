@@ -257,6 +257,7 @@ section{position:relative}
 .bm-item img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;display:block}
 .bm-item .ph-slot{aspect-ratio:4/5;border-radius:0;border:none}
 @media(hover:hover){.bm-item:hover{transform:translateY(-6px);box-shadow:var(--sh-mid)}}
+.bm-arrow{display:none}
 /* SEC 6 — OFERTA */
 .sec-oferta{background:var(--paper);overflow:hidden}
 .sec-oferta::before,.sec-oferta::after{content:"";position:absolute;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--sage),transparent);pointer-events:none;z-index:2}
@@ -383,7 +384,7 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
   .wrap{padding:0 18px}
   .sec{padding:60px 0}
   .hero{padding:48px 0 50px}
-  .hero{background:linear-gradient(180deg,rgba(251,246,239,.98) 0%,rgba(251,246,239,.9) 48%,rgba(251,246,239,.18) 74%,rgba(251,246,239,0) 100%),url("assets/hero/prancheta-1.png") 68% bottom/170% auto no-repeat,var(--grad-warm)}
+  .hero{background:linear-gradient(180deg,rgba(251,246,239,.98) 0%,rgba(251,246,239,.9) 48%,rgba(251,246,239,.18) 74%,rgba(251,246,239,0) 100%),url("assets/hero/mobilediogo.png") center bottom/cover no-repeat,var(--grad-warm)}
   .hero h1{font-size:clamp(28px,8vw,38px)}
   .hero-start{width:100%;justify-content:center}
   .sec h2{font-size:clamp(25px,7vw,34px)}
@@ -391,7 +392,16 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
   .imag-grid{grid-template-columns:1fr}
   .acesso-grid{grid-template-columns:1fr;max-width:330px;margin-left:auto;margin-right:auto}
   .mc-grid{grid-template-columns:1fr;max-width:330px;gap:26px}
-  .bonus-mont{grid-template-columns:1fr;max-width:300px}
+  .bonus-mont{position:relative;display:block;grid-template-columns:none;max-width:none;overflow:hidden;padding:18px 0 26px;min-height:430px;touch-action:pan-y}
+  .bonus-mont .bm-item{position:absolute;top:50%;left:50%;width:78%;margin:0;align-self:auto;transform:translate(-50%,-50%) scale(.62);filter:blur(3px);opacity:0;transition:transform .5s ease,filter .5s ease,opacity .5s ease;pointer-events:none;z-index:1}
+  .bonus-mont .bm-item.is-center{transform:translate(-50%,-50%) scale(1);filter:none;opacity:1;pointer-events:auto;z-index:3}
+  .bonus-mont .bm-item.is-left{transform:translate(calc(-50% - 78%),-50%) scale(.62);opacity:.5;z-index:2}
+  .bonus-mont .bm-item.is-right{transform:translate(calc(-50% + 78%),-50%) scale(.62);opacity:.5;z-index:2}
+  .bm-arrow{display:flex;position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(255,253,250,.94);border:1px solid var(--linha);box-shadow:0 4px 14px rgba(79,122,99,.18);align-items:center;justify-content:center;cursor:pointer;z-index:5;padding:0;-webkit-tap-highlight-color:transparent}
+  .bm-arrow svg{width:18px;height:18px;stroke:var(--sage-esc);stroke-width:2.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .bm-arrow.prev{left:6px}
+  .bm-arrow.next{right:6px}
+  .bm-arrow:active{background:var(--cream)}
   .hero-visual{min-height:370px}
   .hero-back .hb{opacity:.4}
   .price-side{padding:30px 22px 332px}
@@ -628,10 +638,12 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
       </article>
     </div>
     <p class="bonus-intro sr-hidden">E ainda recebes vários recursos práticos para usares no <span style="white-space:nowrap">dia-a-dia</span></p>
-    <div class="bonus-mont">
+    <div class="bonus-mont" id="bonusCarousel" role="region" aria-label="Carrossel de bónus">
+      <button type="button" class="bm-arrow prev" aria-label="Bónus anterior" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
       <div class="bm-item sr-hidden"><img id="bonus-livros" src="assets/bonus/livros.jpg" loading="lazy" alt="Bónus — livros infantis"></div>
       <div class="bm-item sr-hidden"><img id="bonus-utensilios" src="assets/bonus/utensilios.jpg" loading="lazy" alt="Bónus — utensílios"></div>
       <div class="bm-item sr-hidden"><img id="bonus-receitas" src="assets/bonus/receitas.jpg" loading="lazy" alt="Bónus — receitas"></div>
+      <button type="button" class="bm-arrow next" aria-label="Próximo bónus" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
   </div>
 </section>
@@ -874,6 +886,97 @@ footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;b
   document.addEventListener('scroll',onScroll,{passive:true,capture:true});
   window.addEventListener('resize',onScroll,{passive:true});
   update();
+})();
+
+/* ===== Carrossel coverflow dos bonus (so mobile) ===== */
+(function(){
+  var carousel=document.getElementById('bonusCarousel');
+  if(!carousel)return;
+  var items=carousel.querySelectorAll('.bm-item');
+  var prevBtn=carousel.querySelector('.bm-arrow.prev');
+  var nextBtn=carousel.querySelector('.bm-arrow.next');
+  var n=items.length;
+  if(n<2)return;
+  var current=0;
+  var timer=null;
+  var pauseTimer=null;
+  var mq=window.matchMedia('(max-width:600px)');
+  var active=false;
+
+  function render(){
+    for(var i=0;i<n;i++){
+      items[i].classList.remove('is-center','is-left','is-right');
+      var diff=i-current;
+      // normaliza para -1,0,1 considerando loop curto (3 itens)
+      if(diff===1||(n===3&&current===n-1&&i===0))items[i].classList.add('is-right');
+      else if(diff===-1||(n===3&&current===0&&i===n-1))items[i].classList.add('is-left');
+      else if(diff===0)items[i].classList.add('is-center');
+    }
+    adjustHeight();
+  }
+  function adjustHeight(){
+    var center=items[current];
+    var img=center.querySelector('img');
+    function setH(){
+      var h=center.offsetHeight;
+      if(h>0)carousel.style.minHeight=h+'px';
+    }
+    if(img&&img.complete&&img.naturalWidth>0)setH();
+    else if(img){img.addEventListener('load',setH,{once:true});img.addEventListener('error',setH,{once:true});}
+    else setH();
+  }
+  function next(){current=(current+1)%n;render();}
+  function prev(){current=(current-1+n)%n;render();}
+  function startAuto(){stopAuto();timer=setInterval(next,3500);}
+  function stopAuto(){if(timer){clearInterval(timer);timer=null;}}
+  function pauseTemp(){stopAuto();if(pauseTimer)clearTimeout(pauseTimer);pauseTimer=setTimeout(startAuto,6000);}
+  function onPrev(e){e.preventDefault();prev();pauseTemp();}
+  function onNext(e){e.preventDefault();next();pauseTemp();}
+
+  var touchX=null,touchY=null;
+  function onTouchStart(e){var t=e.touches[0];touchX=t.clientX;touchY=t.clientY;stopAuto();}
+  function onTouchMove(e){if(touchX===null)return;var t=e.touches[0];if(Math.abs(t.clientX-touchX)>Math.abs(t.clientY-touchY))e.preventDefault();}
+  function onTouchEnd(e){
+    if(touchX===null){return;}
+    var t=e.changedTouches[0];
+    var dx=t.clientX-touchX;
+    var dy=t.clientY-touchY;
+    touchX=null;touchY=null;
+    if(Math.abs(dx)>30&&Math.abs(dx)>Math.abs(dy)){if(dx<0)next();else prev();pauseTemp();}
+    else startAuto();
+  }
+
+  function bind(){
+    prevBtn.addEventListener('click',onPrev);
+    nextBtn.addEventListener('click',onNext);
+    carousel.addEventListener('touchstart',onTouchStart,{passive:true});
+    carousel.addEventListener('touchmove',onTouchMove,{passive:false});
+    carousel.addEventListener('touchend',onTouchEnd,{passive:true});
+    if(prevBtn)prevBtn.setAttribute('tabindex','0');
+    if(nextBtn)nextBtn.setAttribute('tabindex','0');
+  }
+  function unbind(){
+    stopAuto();if(pauseTimer)clearTimeout(pauseTimer);
+    prevBtn.removeEventListener('click',onPrev);
+    nextBtn.removeEventListener('click',onNext);
+    carousel.removeEventListener('touchstart',onTouchStart);
+    carousel.removeEventListener('touchmove',onTouchMove);
+    carousel.removeEventListener('touchend',onTouchEnd);
+    if(prevBtn)prevBtn.setAttribute('tabindex','-1');
+    if(nextBtn)nextBtn.setAttribute('tabindex','-1');
+    for(var i=0;i<n;i++)items[i].classList.remove('is-center','is-left','is-right');
+    carousel.style.minHeight='';
+  }
+  function enable(){active=true;render();startAuto();bind();}
+  function disable(){active=false;unbind();}
+
+  function evaluate(){
+    var mobile=mq.matches;
+    if(mobile&&!active)enable();
+    else if(!mobile&&active)disable();
+  }
+  if(mq.addEventListener)mq.addEventListener('change',evaluate);else mq.addListener(evaluate);
+  evaluate();
 })();
 </script>
 </body>
